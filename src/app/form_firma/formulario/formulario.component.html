@@ -1,0 +1,54 @@
+<p>formulario works!</p>
+
+<div class="container">
+    <form>
+        <div>
+            <label id="radio-group-label"><strong>Seleccione tipo de firma</strong></label><br>
+            <mat-radio-group aria-labelledby="radio-group-label" class="radio-group">
+                <mat-radio-button class="radio-button" *ngFor="let op of options" [value]="options">
+                    {{op}}
+                </mat-radio-button>
+            </mat-radio-group>
+        </div><br>
+        <mat-form-field appearance="fill" class="name-field">
+            <mat-label>Nombre(s)</mat-label>
+            <input matInput [formControl]="name" required>
+            <mat-error *ngIf="name.invalid">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="surname-field">
+            <mat-label>Apellido(s)</mat-label>
+            <input matInput [formControl]="surname" required>
+            <mat-error *ngIf="surname.invalid">{{getErrorMessage()}}</mat-error>
+        </mat-form-field><br>
+        <mat-form-field appearance="fill">
+            <mat-label>País</mat-label>
+            <mat-select [disabled]="disableSelect.value" required>
+                <mat-option *ngFor="let item of pais" value="item.value">{{item.label}}</mat-option>
+            </mat-select>
+        </mat-form-field><br>
+        <mat-form-field appearance="fill" class="email-field">
+            <mat-label>Correo Electrónico</mat-label>
+            <input matInput placeholder="pat@example.com" [formControl]="email" required>
+            <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+        </mat-form-field><br>
+        <mat-form-field appearance="fill" class="institution-field">
+            <mat-label>Institución u organización</mat-label>
+            <input matInput [formControl]="surname" required>
+            <mat-error *ngIf="surname.invalid">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="position-field">
+            <mat-label>Cargo</mat-label>
+            <input matInput [formControl]="name" required>
+            <mat-error *ngIf="name.invalid">{{getErrorMessage()}}</mat-error>
+        </mat-form-field><br><br>
+        <div class="button-file">
+            <label>Logo: </label>&nbsp;
+            <input type="file">
+        </div><br><br>
+        <div class="button-row">
+            <button mat-button class="button-firm">Firmar</button>
+        </div>
+    </form>
+  </div>
+  
+  

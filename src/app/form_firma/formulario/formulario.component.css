@@ -1,0 +1,36 @@
+.container .mat-form-field + .mat-form-field {
+    margin-left: 8px;
+  }
+
+  .container{
+    margin: 40px;
+  }
+  .radio-group {
+    display: flex;
+    flex-direction: column;
+    margin: 15px 0;
+    align-items: flex-start;
+  }
+  
+  .radio-button {
+    margin: 5px;
+  }
+
+  .email-field{
+    width: 22.2%;
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: center;
+    width: 120px;
+  }
+
+  .button-firm{
+    color: #fff;
+    background-color: #FF4C00;
+    border-color: #FF4C00;
+    border-radius: 1px;
+    padding: 15px;
+    width: 5%;
+  }
