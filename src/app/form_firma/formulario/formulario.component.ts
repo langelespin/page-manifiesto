@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
-import {FormControl, Validators} from '@angular/forms';
+import {FormBuilder, FormControl, Validators} from '@angular/forms';
 import {PaisesService} from 'src/app/services/paises.service';
-
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-formulario',
@@ -10,27 +10,22 @@ import {PaisesService} from 'src/app/services/paises.service';
 })
 export class FormularioComponent  {
   pais: any[] = [];
-  options: string[] = ['Estoy firmando como particular.', 'Firmo en nombre de una institución u otra organización.'];
-  email = new FormControl('', [Validators.required, Validators.email]);
-  name = new FormControl('', [Validators.required]);
-  surname = new FormControl('', [Validators.required]);
-  disableSelect = new FormControl(false);
-
+  formFirm = this.dt.group({
+    nombre: ['', [Validators.required]],
+    apellidos: ['', [Validators.required]],
+    correo: ['', [Validators.required, Validators.email]],
+    tipo: ['', [Validators.required]],
+    institucion: ['', [Validators.required]],
+    cargo: ['', [Validators.required]],
+    pais: ['', [Validators.required]],
+    logo: ['']
+  })
   constructor(
-    private paisesService: PaisesService
+    private paisesService: PaisesService,
+    private dt: FormBuilder
     ){
 
   }
-  getErrorMessage() {
-    if (this.email.hasError('required')) {
-      return 'Debes ingresar un valor';
-    }else{
-      return this.email.hasError('email') ? 'No es valido tu correo' : '';
-    }
-
-    
-  }
-  
   ngOnInit(){
     
     this.paisesService.getAllPaises().subscribe( result => {
@@ -38,5 +33,47 @@ export class FormularioComponent  {
       console.log(this.pais)
     });
   }
+
+  saveFile(event:any){
+    const file:File = event.target.files[0].name;
+    this.formFirm.controls['logo'].setValue(event.target.files[0].name);
+    console.log(file);
+    
+  }
+  saveDate(){
+   const data={
+    "datos":{
+      "id": 0,
+      "nombre": this.formFirm.get('nombre')?.value,
+      "apellidos": this.formFirm.get('apellidos')?.value,
+      "correo": this.formFirm.get('correo')?.value,
+      "cargo": this.formFirm.get('cargo')?.value,
+      "institucion": this.formFirm.get('institucion')?.value,
+      "pais": this.formFirm.get('pais')?.value,
+      "logo": this.formFirm.get('logo')?.value,
+      "tipo": Number(this.formFirm.get('tipo')?.value)
+    }
+   }
+   console.log(data.datos.cargo); 
+   if(this.formFirm.valid){
+    this.paisesService.postAllGuardarRegistroFirma(data).subscribe( response => {
+      console.log(response);
+      if(response.status === "OK"){
+        Swal.fire({
+        icon: 'success',
+        title: 'Su firma se registro correctamente',
+        showConfirmButton: false,
+        timer: 2500
+      })
+      }
+  });
+  }else {
+    this.formFirm.markAllAsTouched();
+  }
+  
+  }
+
+
+  
 }
 

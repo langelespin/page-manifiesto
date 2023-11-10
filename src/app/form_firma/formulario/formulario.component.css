@@ -21,7 +21,7 @@
   }
   
   .button-container {
-    display: flex;
+    /*display: flex;*/
     justify-content: center;
     width: 120px;
   }
@@ -31,6 +31,6 @@
     background-color: #FF4C00;
     border-color: #FF4C00;
     border-radius: 1px;
-    padding: 15px;
-    width: 5%;
+    padding: 12px;
+    width: 75px;
   }
