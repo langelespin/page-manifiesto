@@ -1,9 +1,11 @@
 .container .mat-form-field + .mat-form-field {
     margin-left: 8px;
+
   }
 
   .container{
     margin: 40px;
+    padding-left: 50px;
   }
   .radio-group {
     display: flex;
@@ -27,10 +29,19 @@
   }
 
   .button-firm{
-    color: #fff;
-    background-color: #FF4C00;
+      color: #fff;
     border-color: #FF4C00;
-    border-radius: 1px;
-    padding: 12px;
-    width: 75px;
+    background-color: #FF4C00;
+    padding-left: 48px;
+    font-size: 14px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .field{
+    width: 50%;
   }

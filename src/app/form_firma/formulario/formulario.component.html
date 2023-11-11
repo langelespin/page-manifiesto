@@ -10,35 +10,37 @@
             </mat-radio-group>
             <mat-error *ngIf="this.formFirm.get('tipo')?.errors?.['required']">Este campo es requerido</mat-error>
         </div><br>
-        <mat-form-field appearance="fill" class="name-field">
+        <mat-form-field appearance="fill" class="name-field field">
             <mat-label>Nombre(s)</mat-label>
             <input matInput formControlName="nombre" required>
             <mat-error *ngIf="this.formFirm.get('nombre')?.errors?.['required']">Este campo es requerido</mat-error>
         </mat-form-field>
-        <mat-form-field appearance="fill" class="surname-field">
+        <br>
+        <mat-form-field appearance="fill" class="surname-field field">
             <mat-label>Apellido(s)</mat-label>
             <input matInput required formControlName="apellidos">
             <mat-error *ngIf="this.formFirm.get('apellidos')?.errors?.['required']">Este campo es requerido</mat-error>
         </mat-form-field><br>
-        <mat-form-field appearance="fill">
+        <mat-form-field appearance="fill" class="email-field field">
+            <mat-label>Correo Electrónico</mat-label>
+            <input matInput placeholder="pat@gmail.com" formControlName="correo" required>
+            <mat-error *ngIf="this.formFirm.get('correo')?.errors?.['required']">Este campo es requerido</mat-error>
+            <mat-error *ngIf="this.formFirm.get('correo')?.errors?.['email']">El correo ingresado no es valido</mat-error>
+        </mat-form-field><br>
+        <mat-form-field appearance="fill" class="field">
             <mat-label>País</mat-label>
             <mat-select formControlName="pais" required>
                 <mat-option *ngFor="let item of pais" [value]="item.value">{{item.label}}</mat-option>
                 <mat-error *ngIf="this.formFirm.get('pais')?.errors?.['required']">Este campo es requerido</mat-error>
             </mat-select>
         </mat-form-field><br>
-        <mat-form-field appearance="fill" class="email-field">
-            <mat-label>Correo Electrónico</mat-label>
-            <input matInput placeholder="pat@gmail.com" formControlName="correo" required>
-            <mat-error *ngIf="this.formFirm.get('correo')?.errors?.['required']">Este campo es requerido</mat-error>
-            <mat-error *ngIf="this.formFirm.get('correo')?.errors?.['email']">El correo ingresado no es valido</mat-error>
-        </mat-form-field><br>
-        <mat-form-field appearance="fill" class="institution-field">
+        <mat-form-field appearance="fill" class="institution-field field">
             <mat-label>Institución u organización</mat-label>
             <input matInput formControlName="institucion" required>
             <mat-error *ngIf="this.formFirm.get('institucion')?.errors?.['required']">Este campo es requerido</mat-error>
         </mat-form-field>
-        <mat-form-field appearance="fill" class="position-field">
+        <br>
+        <mat-form-field appearance="fill" class="position-field field">
             <mat-label>Cargo</mat-label>
             <input matInput formControlName="cargo" required>
             <mat-error *ngIf="this.formFirm.get('cargo')?.errors?.['required']">Este campo es requerido</mat-error>
@@ -53,6 +55,6 @@
     </form>
   </div>
 
-  <pre>{{ formFirm.value | json  }}</pre>
+  <!-- <pre>{{ formFirm.value | json  }}</pre> -->
   
   
