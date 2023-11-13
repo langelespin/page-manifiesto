@@ -1,0 +1,14 @@
+{
+    "seleccion": "Select the kind of signature *",
+    "opcion1": "I am signing as indidividual.",
+    "opcion2": "I am signing on behalf of an instititution or organization.",
+    "nombres": "Name(s)",
+    "apellidos": "Last name(s)",
+    "correo": "Email",
+    "pais": "Country",
+    "institucion": "Institution or organization", 
+    "cargo": "Job title",
+    "Logo": "Institutional logo",
+    "mensajeError": "This field is required.",
+    "mensajeErrorEmail": "The email is not valid."
+}
