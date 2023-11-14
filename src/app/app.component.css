@@ -7,13 +7,13 @@
 .text-container{
     width: 60%;
     margin: 0 auto;
-    padding: 40px;
+    padding: 10px;
     border-bottom: solid 1px gainsboro;
 }
 
 .md-section{
     width: 60%;
-    margin: 0 auto;
+    margin: 20px auto;
 }
 
 h1{
@@ -58,6 +58,7 @@ ol {
     font-weight: bold;
     color: black;
     font-size: 13pt;
+    padding-top: 5px;
   }
 
   .btn-pdf{

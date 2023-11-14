@@ -45,14 +45,24 @@
       <div class="sub-container">
         <div class="img" style="text-align: center;">
           <h1>{{"titulo" | translate}}</h1>
-          <p>{{"fecha" | translate}}</p>
+          <p style="text-align: left;">{{"fecha" | translate}}</p>
         </div>
         <div>
-          <p>
+          <p style="text-align: right;">
             <em>{{"mensajeComillas" | translate}}</em>
           </p>
-          <p style="text-align: right;">{{"cita" | translate}}</p>
-          <br>
+          <p style="text-align: right; margin-top: -10px;">{{"cita" | translate}}</p>
+          <div style="text-align: right; margin: 50px 0px;">
+            <a class="btn-pdf"
+              href="https://globaldiamantoa.org/wp-content/uploads/2023/10/manifiestoCienciaBien-Publico.pdf"
+              download="">DESCARGAR PDF ES</a>
+              <a class="btn-pdf"
+              href="https://globaldiamantoa.org/wp-content/uploads/2023/10/manifiestoCienciaBien-Publico.pdf"
+              download="">DESCARGAR PDF EN</a>
+              <a class="btn-pdf"
+              href="https://globaldiamantoa.org/wp-content/uploads/2023/10/manifiestoCienciaBien-Publico.pdf"
+              download="">DESCARGAR PDF PT</a>
+          </div>
           <br>
           <p [innerHTML]="'parrafo2' | translate"></p>
           <p [innerHTML]="'parrafo3' | translate"></p>
@@ -94,11 +104,7 @@
           <p>
             {{"parrafo10" | translate}}
           </p>
-          <div style="text-align: center; margin: 50px 0px;">
-            <a class="btn-pdf"
-              href="https://globaldiamantoa.org/wp-content/uploads/2023/10/manifiestoCienciaBien-Publico.pdf"
-              download="">DESCARGAR PDF</a>
-          </div>
+          
         </div>
       </div>
     </section>
