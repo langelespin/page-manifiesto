@@ -56,7 +56,7 @@
         </ngx-recaptcha2>
         <mat-error *ngIf="this.formFirm.get('recaptcha')?.errors?.['required']">Este campo es requerido</mat-error>
         <div class="button-row">
-            <button mat-button type="submit" class="button-firm" (click)="saveDate()">{{"Firmar" | translate}}</button>
+            <button [attr.disabled]="formFirm.valid ? null : true" type="submit" class="button-firm" (click)="saveDate()">{{"Firmar" | translate}}</button>
         </div>
     </form>
 </div>
