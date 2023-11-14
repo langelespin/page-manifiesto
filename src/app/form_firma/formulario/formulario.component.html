@@ -50,7 +50,7 @@
             <input type="file" accept=".png, .jpg" (change)="saveFile($event)">
         </div><br><br>
         <div class="button-row">
-            <button mat-button type="submit" class="button-firm" (click)="saveDate()">{{"Firmar" | translate}}</button>
+            <button [attr.disabled]="formFirm.valid ? null : true" type="submit" class="button-firm" (click)="saveDate()">{{"Firmar" | translate}}</button>
         </div>
     </form>
   </div>

@@ -31,14 +31,62 @@ export class FormularioComponent  {
     this.paisesService.getAllPaises().subscribe( result => {
       this.pais = result;
       console.log(this.pais)
-    });
+    }, error => {console.log("error", error)});
   }
-
+  fileName = '';
+  formData: any;
+  file: any;
   saveFile(event:any){
-    const file:File = event.target.files[0].name;
+    const file:File = event.target.files[0];
     this.formFirm.controls['logo'].setValue(event.target.files[0].name);
     console.log(file);
+    if (file&&file.size<3000000) {
+      var fileExtension = '.' + file.name.split('.').pop();
+      if(fileExtension=='.png' || fileExtension=='.jpg'){
+          //this.fileName = this.data.cveentrev+'/licenciaMarcalyc_'+this.data.cvesolusu+'_'+this.data.cveentrev+'_'+this.data.cveusulic+fileExtension;
+          this.formData = new FormData();
+          this.file = file
+          this.formData.append('tipo','cumbre');
+          //this.formData.append('clave',this.data.cveentrev!);  
+          this.formData.append('clave', 'manifiesto');
+      }else{
+          //mensaje de error formato
+          console.log('error de formato');
+          Swal.fire({
+            icon: 'error',
+            title: 'El archivo debe ser PNG o JPG con extensión <strong>.png o .jpg</strong>',
+            showConfirmButton: true,
+          })
+
+      }
+  }else{
+      //mensaje de error tamaño
+      console.log('error de tamaño');
+      Swal.fire({
+        icon: 'error',
+        title: 'El tamaño del archivo no debe exceder los 3MB',
+        showConfirmButton: true,
+      })
+  }   
+
+}
     
+  guardarDatos(){
+    this.fileName = '/logo';
+          this.formData.append("archivo", this.file,this.fileName!);
+          this.paisesService.postSubirArchivo(this.formData).subscribe(a=>{
+            console.log('FILE -->', a)
+            Swal.fire({
+              icon: 'success',
+              title: 'Se han guardado los datos exitosamente.',
+              color: '#336b75',
+              backdrop: '#336b756C'
+            }).then(() => {
+              this.ngOnInit()
+              
+            });
+      
+          });
   }
   saveDate(){
    const data={
@@ -58,19 +106,38 @@ export class FormularioComponent  {
    if(this.formFirm.valid){
     this.paisesService.postAllGuardarRegistroFirma(data).subscribe( response => {
       console.log(response);
-      if(response.status === "OK"){
-        Swal.fire({
-        icon: 'success',
-        title: 'Su firma se registro correctamente',
-        showConfirmButton: false,
-        timer: 2500
-      })
+      if(this.formData != undefined && this.formData != null){
+        this.fileName = '/'+response.id+'_logo';
+        this.formData.append("archivo", this.file,this.fileName!);
+        this.paisesService.postSubirArchivo(this.formData).subscribe(a=>{
+          console.log('FILE -->', a)
+          if(response.status === "OK"){
+            Swal.fire({
+            icon: 'success',
+            title: 'Su firma se registro correctamente',
+            showConfirmButton: false,
+            timer: 2500
+          })
+          };
+    
+        });
+      }else{
+        if(response.status === "OK"){
+          Swal.fire({
+          icon: 'success',
+          title: 'Su firma se registro correctamente',
+          showConfirmButton: false,
+          timer: 2500
+        })
+        };
       }
+      
   });
+  
   }else {
     this.formFirm.markAllAsTouched();
   }
-  
+  console.log('archivo', this.formData);
   }
 
 

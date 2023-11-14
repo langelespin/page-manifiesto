@@ -18,6 +18,10 @@ export class PaisesService {
     return this.http.post(this.guardarDatos, form);
   }
 
+  public postSubirArchivo(form:any): Observable<any>{
+    return this.http.post('http://148.215.24.201:5004/generador/archivos/subir', form);
+  }
+
 
 }
 
