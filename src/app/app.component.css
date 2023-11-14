@@ -29,11 +29,13 @@ ol {
     counter-reset: my-awesome-counter;
     list-style: none;
     padding-left: 40px;
+    
   }
   ol li {
     margin: 0 0 0.5rem 0;
     counter-increment: my-awesome-counter;
     position: relative;
+    padding-left: 10px;
   }
   ol li::before {
     content: counter(my-awesome-counter);
@@ -90,9 +92,21 @@ ol {
   }
   
   .idomaBtn{
+    color: #FF4C00;
+    border-color: #FF4C00;
+    background-color: #fff;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 3px;
+  }
+
+  .idomaBtn:hover{
     color: #fff;
     border-color: #FF4C00;
     background-color: #FF4C00;
-    padding: 5px;
-    cursor: pointer;
+  }
+
+  .text-container{
+    margin-top: 40px;
+    color: gray;
   }
