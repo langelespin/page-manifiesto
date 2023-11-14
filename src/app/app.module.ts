@@ -11,12 +11,9 @@ import { MatRadioModule } from '@angular/material/radio';
 import {MatSelectModule} from '@angular/material/select';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { MatFormFieldModule } from '@angular/material/form-field';
-<<<<<<< HEAD
 import { NgxCaptchaModule } from 'ngx-captcha';
-=======
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
->>>>>>> d8409a033ae52599f6202319ce0331f474aa07ed
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -39,9 +36,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     HttpClientModule,
     MatFormFieldModule,
     MatInputModule,
-<<<<<<< HEAD
-    NgxCaptchaModule
-=======
+    NgxCaptchaModule,
     TranslateModule.forRoot({
       loader: {
           provide: TranslateLoader,
@@ -49,7 +44,6 @@ export function HttpLoaderFactory(http: HttpClient) {
           deps: [HttpClient]
       }
   })
->>>>>>> d8409a033ae52599f6202319ce0331f474aa07ed
   ],
   providers: [],
   bootstrap: [AppComponent]

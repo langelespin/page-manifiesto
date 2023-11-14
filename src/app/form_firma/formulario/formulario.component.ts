@@ -10,7 +10,7 @@ import Swal from 'sweetalert2';
 })
 export class FormularioComponent  {
 
-  siteKey = '6LdslAkpAAAAAL5yaF15LaDdva7yv_WN2Ib_LnPr';
+  siteKey = '6Ld9GAopAAAAAC4MrBt5DL-tM_Be8a3lmaGhJP0f';
   showUploadFile: boolean = false;
 
   pais: any[] = [];
