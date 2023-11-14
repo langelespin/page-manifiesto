@@ -21,6 +21,7 @@
     "@angular/platform-browser": "^14.0.0",
     "@angular/platform-browser-dynamic": "^14.0.0",
     "@angular/router": "^14.0.0",
+    "@syncfusion/ej2-angular-grids": "^23.1.44",
     "angular-i18n": "^1.8.3",
     "rxjs": "~7.5.0",
     "sweetalert2": "^11.9.0",

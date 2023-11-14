@@ -18,6 +18,9 @@ export class PaisesService {
     return this.http.post(this.guardarDatos, form);
   }
 
+  public getDatosPaisesMap(): Observable<any>{
+    return this.http.get('http://148.215.24.201:5000/siir/usuarios/usuario/recuperarDatosPaises');
+  }
 
 }
 
