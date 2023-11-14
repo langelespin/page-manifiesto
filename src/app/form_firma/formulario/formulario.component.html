@@ -1,12 +1,12 @@
-
-
 <div class="container">
     <form [formGroup]="formFirm">
         <div>
             <label id="radio-group-label" aria-label="required"><strong>Seleccione tipo de firma *</strong></label><br>
-            <mat-radio-group aria-labelledby="radio-group-label" class="radio-group" formControlName="tipo" required>
+            <mat-radio-group aria-labelledby="radio-group-label" class="radio-group" formControlName="tipo" required
+            (change)="radioChange($event)">
                 <mat-radio-button class="radio-button" value="1">Estoy firmando como particular.</mat-radio-button>
-                <mat-radio-button class="radio-button" value="2">Firmo en nombre de una institución u otra organización.</mat-radio-button>
+                <mat-radio-button class="radio-button" value="2">Firmo en nombre de una institución u otra
+                    organización.</mat-radio-button>
             </mat-radio-group>
             <mat-error *ngIf="this.formFirm.get('tipo')?.errors?.['required']">Este campo es requerido</mat-error>
         </div><br>
@@ -25,7 +25,8 @@
             <mat-label>Correo Electrónico</mat-label>
             <input matInput placeholder="pat@gmail.com" formControlName="correo" required>
             <mat-error *ngIf="this.formFirm.get('correo')?.errors?.['required']">Este campo es requerido</mat-error>
-            <mat-error *ngIf="this.formFirm.get('correo')?.errors?.['email']">El correo ingresado no es valido</mat-error>
+            <mat-error *ngIf="this.formFirm.get('correo')?.errors?.['email']">El correo ingresado no es
+                valido</mat-error>
         </mat-form-field><br>
         <mat-form-field appearance="fill" class="field">
             <mat-label>País</mat-label>
@@ -37,7 +38,8 @@
         <mat-form-field appearance="fill" class="institution-field field">
             <mat-label>Institución u organización</mat-label>
             <input matInput formControlName="institucion" required>
-            <mat-error *ngIf="this.formFirm.get('institucion')?.errors?.['required']">Este campo es requerido</mat-error>
+            <mat-error *ngIf="this.formFirm.get('institucion')?.errors?.['required']">Este campo es
+                requerido</mat-error>
         </mat-form-field>
         <br>
         <mat-form-field appearance="fill" class="position-field field">
@@ -45,16 +47,21 @@
             <input matInput formControlName="cargo" required>
             <mat-error *ngIf="this.formFirm.get('cargo')?.errors?.['required']">Este campo es requerido</mat-error>
         </mat-form-field><br><br>
-        <div class="button-file">
+        <div class="button-file" *ngIf="showUploadFile">
             <label>Logo: </label>&nbsp;
             <input type="file" accept=".png, .jpg" (change)="saveFile($event)">
         </div><br><br>
+        
+        <ngx-recaptcha2 #captchaElem [siteKey]="siteKey" (reset)="handleReset()" (expire)="handleExpire()"
+            (load)="handleLoad()" (success)="handleSuccess($event)" [useGlobalDomain]="false"
+            formControlName="recaptcha">
+            
+        </ngx-recaptcha2>
+        <mat-error *ngIf="this.formFirm.get('recaptcha')?.errors?.['required']">Este campo es requerido</mat-error>
         <div class="button-row">
             <button mat-button type="submit" class="button-firm" (click)="saveDate()">Firmar</button>
         </div>
     </form>
-  </div>
+</div>
 
-  <!-- <pre>{{ formFirm.value | json  }}</pre> -->
-  
-  
+<!-- <pre>{{ formFirm.value | json  }}</pre> -->

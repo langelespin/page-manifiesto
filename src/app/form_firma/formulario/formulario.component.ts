@@ -9,6 +9,10 @@ import Swal from 'sweetalert2';
   styleUrls: ['./formulario.component.css']
 })
 export class FormularioComponent  {
+
+  siteKey = '6LdslAkpAAAAAL5yaF15LaDdva7yv_WN2Ib_LnPr';
+  showUploadFile: boolean = false;
+
   pais: any[] = [];
   formFirm = this.dt.group({
     nombre: ['', [Validators.required]],
@@ -18,7 +22,8 @@ export class FormularioComponent  {
     institucion: ['', [Validators.required]],
     cargo: ['', [Validators.required]],
     pais: ['', [Validators.required]],
-    logo: ['']
+    logo: [''],
+    recaptcha: ['', Validators.required]
   })
   constructor(
     private paisesService: PaisesService,
@@ -73,6 +78,31 @@ export class FormularioComponent  {
   
   }
 
+  handleReset(){
+    console.log('handleReset');
+  }
+
+  handleExpire(){
+    console.log('handleExpire');
+
+  }
+
+  handleSuccess(event:any){
+    console.log(event);
+  }
+
+  handleLoad(){
+    console.log('handleLoad');
+
+  }
+
+  radioChange(event:any){
+    if(event.value==='2'){
+      this.showUploadFile = true;
+    }else if(event.value==='1'){
+      this.showUploadFile = false;
+    }
+  }
 
   
 }

@@ -11,6 +11,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import {MatSelectModule} from '@angular/material/select';
 import { HttpClientModule } from '@angular/common/http';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { NgxCaptchaModule } from 'ngx-captcha';
 
 
 
@@ -30,7 +31,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatSelectModule,
     HttpClientModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    NgxCaptchaModule
   ],
   providers: [],
   bootstrap: [AppComponent]

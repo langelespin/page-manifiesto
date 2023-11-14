@@ -8,6 +8,10 @@ import { HttpClient } from '@angular/common/http';
 export class PaisesService {
   private paises = 'http://148.215.24.201:4001/amelica/usuarios/catalogo/countries';
   private guardarDatos = 'http://148.215.24.201:5000/siir/usuarios/usuario/guardarRegistroFirma'
+
+  // private paises = 'https://fiap.redalyc.org/back/siir/postulacion/catalogo/countries';
+  // private guardarDatos = 'https://fiap.redalyc.org/back/siir/usuarios/usuario/guardarRegistroFirma'
+  
   constructor(private http: HttpClient) { }
   public getAllPaises(): Observable<any>{
     return this.http.get(this.paises);
