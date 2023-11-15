@@ -9,7 +9,8 @@ import { TranslateService } from '@ngx-translate/core';
 export class AppComponent {
   title = 'form';
   idioma: any = 'es';
-  constructor(private translateService:TranslateService) {
+  constructor(
+    private translateService:TranslateService) {
     this.translateService.setDefaultLang('es');
     localStorage.setItem('idioma', 'es')
     this.translateService.use(localStorage.getItem('idioma')||'es');

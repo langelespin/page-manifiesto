@@ -10,7 +10,7 @@ import Swal from 'sweetalert2';
 })
 export class FormularioComponent  {
 
-  siteKey = '6Ld9GAopAAAAAC4MrBt5DL-tM_Be8a3lmaGhJP0f';
+  siteKey = '6LfspQ8pAAAAAMn-_3hkF8rtIiiS6CDwFM3IMlka';
   showUploadFile: boolean = false;
 
   pais: any[] = [];
@@ -119,7 +119,7 @@ export class FormularioComponent  {
           if(response.status === "OK"){
             Swal.fire({
             icon: 'success',
-            title: 'Su firma se registro correctamente',
+            title: localStorage.getItem('idioma') == 'es' ? 'Su firma se registró correctamente' : localStorage.getItem('idioma') == 'en' ? 'Your signature was successfully recorded' : 'Su firma se registró correctamente',
             showConfirmButton: false,
             timer: 2500
           })
@@ -130,7 +130,7 @@ export class FormularioComponent  {
         if(response.status === "OK"){
           Swal.fire({
           icon: 'success',
-          title: 'Su firma se registro correctamente',
+          title: localStorage.getItem('idioma') == 'es' ? 'Su firma se registró correctamente' : localStorage.getItem('idioma') == 'en' ? 'Your signature was successfully recorded' : 'Su firma se registró correctamente',
           showConfirmButton: false,
           timer: 2500
         })

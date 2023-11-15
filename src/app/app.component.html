@@ -22,7 +22,7 @@
           [ngClass]="{'selected' : idioma  == 'es' || idioma  == null, 'unselected' : idioma != 'es'}">
             ES
         </button>
-        <button
+        <button 
         class="idomaBtn"
           (click)="translate('en')"
           [ngClass]="{'selected' : idioma  == 'en', 'unselected' : idioma != 'en'}">
@@ -53,15 +53,15 @@
           </p>
           <p style="text-align: right; margin-top: -10px;">{{"cita" | translate}}</p>
           <div style="text-align: right; margin: 50px 0px;">
-            <a class="btn-pdf"
+            <a *ngIf="idioma === 'es'" class="btn-pdf"
               href="https://globaldiamantoa.org/wp-content/uploads/2023/10/manifiestoCienciaBien-Publico.pdf"
-              download="">DESCARGAR PDF ES</a>
-              <a class="btn-pdf"
+              download>Descargar PDF</a>
+              <a *ngIf="idioma === 'en'" class="btn-pdf"
               href="http://globaldiamantoa.org/wp-content/uploads/2023/11/Manifesto-SciencePublicGood.pdf"
-              download="">DESCARGAR PDF EN</a>
-              <a class="btn-pdf"
+              download>Download PDF</a>
+              <a *ngIf="idioma === 'pt'" class="btn-pdf"
               href="https://globaldiamantoa.org/wp-content/uploads/2023/10/manifiestoCienciaBien-Publico.pdf"
-              download="">DESCARGAR PDF PT</a>
+              download>Descargar PDF</a>
           </div>
           <br>
           <p [innerHTML]="'parrafo2' | translate"></p>
