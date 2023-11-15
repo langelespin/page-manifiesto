@@ -14,6 +14,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { MapaComponent } from './mapa/mapa.component';
+import { MapsModule } from '@syncfusion/ej2-angular-maps';
+import { MarkerService, MapsTooltipService } from '@syncfusion/ej2-angular-maps';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -43,9 +45,10 @@ export function HttpLoaderFactory(http: HttpClient) {
           useFactory: HttpLoaderFactory,
           deps: [HttpClient]
       }
-  })
+  }),
+  MapsModule
   ],
-  providers: [],
+  providers: [MarkerService, MapsTooltipService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
