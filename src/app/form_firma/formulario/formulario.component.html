@@ -1,6 +1,8 @@
 <div class="container">
+    <div class="row">
     <form [formGroup]="formFirm">
-        <div>
+        
+        <div class="form-group col-md-4">
             <label id="radio-group-label" aria-label="required"><strong>{{"seleccion" | translate}}</strong></label><br>
             <mat-radio-group aria-labelledby="radio-group-label" class="radio-group" formControlName="tipo" required
             (change)="radioChange($event)">
@@ -8,7 +10,7 @@
                 <mat-radio-button class="radio-button" value="2">{{"opcion2" | translate}}</mat-radio-button>
             </mat-radio-group>
             <mat-error *ngIf="this.formFirm.get('tipo')?.errors?.['required']">{{"mensajeError" | translate}}</mat-error>
-        </div><br>
+        </div>
         <mat-form-field appearance="fill" class="name-field field">
             <mat-label>{{"nombres" | translate}}</mat-label>
             <input matInput formControlName="nombre" required>
@@ -59,6 +61,7 @@
             <button [attr.disabled]="formFirm.valid ? null : true" type="submit" class="button-firm" (click)="saveDate()">{{"Firmar" | translate}}</button>
         </div>
     </form>
+</div>
 </div>
 
 <!-- <pre>{{ formFirm.value | json  }}</pre> -->

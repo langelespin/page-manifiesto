@@ -110,3 +110,14 @@ ol {
     margin-top: 40px;
     color: gray;
   }
+
+  @media screen and (max-width: 600px) {
+    .form {
+      display: grid;
+    }
+    .form-div{
+      width: 100% !important;
+    }
+    
+  }
+

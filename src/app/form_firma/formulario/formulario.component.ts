@@ -23,7 +23,7 @@ export class FormularioComponent  {
     cargo: ['', [Validators.required]],
     pais: ['', [Validators.required]],
     logo: [''],
-    recaptcha: ['', Validators.required]
+    recaptcha: ['']
   })
   constructor(
     private paisesService: PaisesService,
@@ -41,19 +41,41 @@ export class FormularioComponent  {
   fileName = '';
   formData: any;
   file: any;
+  fileExt: any;
   saveFile(event:any){
     const file:File = event.target.files[0];
     this.formFirm.controls['logo'].setValue(event.target.files[0].name);
     console.log(file);
     if (file&&file.size<3000000) {
       var fileExtension = '.' + file.name.split('.').pop();
+      this.fileExt = fileExtension
       if(fileExtension=='.png' || fileExtension=='.jpg'){
           //this.fileName = this.data.cveentrev+'/licenciaMarcalyc_'+this.data.cvesolusu+'_'+this.data.cveentrev+'_'+this.data.cveusulic+fileExtension;
-          this.formData = new FormData();
-          this.file = file
-          this.formData.append('tipo','cumbre');
-          //this.formData.append('clave',this.data.cveentrev!);  
-          this.formData.append('clave', 'manifiesto');
+          
+          var img = new Image();
+          var bandera:boolean = false;
+          img.onload = function () 
+          {
+            bandera = img.width<181&&img.width>174&&img.height>89&&img.height<96;
+          };
+          img.src = URL.createObjectURL(file);
+          setTimeout(()=>{
+          if(bandera != false){
+            this.formData = new FormData();
+            this.file = file
+            this.formData.append('tipo','cumbre');
+            this.formData.append('clave', 'manifiesto');
+          }else{
+            Swal.fire({
+              icon: 'error',
+              title: 'Las dimensiones del logo deben ser de largo de 175px-180px y de ancho de 90px-95px.',
+              showConfirmButton: true,
+            })
+            this.formFirm.controls['logo'].setValue(null)
+
+          }
+          },500);
+          
       }else{
           //mensaje de error formato
           console.log('error de formato');
@@ -62,6 +84,8 @@ export class FormularioComponent  {
             title: 'El archivo debe ser PNG o JPG con extensión <strong>.png o .jpg</strong>',
             showConfirmButton: true,
           })
+          this.formFirm.controls['logo'].setValue(null)
+
 
       }
   }else{
@@ -72,6 +96,8 @@ export class FormularioComponent  {
         title: 'El tamaño del archivo no debe exceder los 3MB',
         showConfirmButton: true,
       })
+      this.formFirm.controls['logo'].setValue(null)
+
   }   
 
 }
@@ -112,8 +138,9 @@ export class FormularioComponent  {
     this.paisesService.postAllGuardarRegistroFirma(data).subscribe( response => {
       console.log(response);
       if(this.formData != undefined && this.formData != null){
-        this.fileName = '/'+response.id+'_logo';
+        this.fileName = '/'+response.id+'_logo'+this.fileExt;
         this.formData.append("archivo", this.file,this.fileName!);
+        console.log("fileName", this.fileName);
         this.paisesService.postSubirArchivo(this.formData).subscribe(a=>{
           console.log('FILE -->', a)
           if(response.status === "OK"){
@@ -125,6 +152,14 @@ export class FormularioComponent  {
           })
           };
     
+        },
+        error => {
+          console.log("error", error);
+          Swal.fire({
+            icon: 'error',
+            title: localStorage.getItem('idioma') == 'es' ? 'Sus datos se guardaron exitosamente, pero la exportación de su logo fallo, favor de enviar su logo a globaldiamantoa@gmail.com' : localStorage.getItem('idioma') == 'en' ? 'Your data was saved successfully, but the export of your logo failed, please send your logo to globaldiamantoa@gmail.com.' : 'Os seus dados foram guardados com sucesso, mas a exportação do seu logótipo falhou. Envie o seu logótipo para globaldiamantoa@gmail.com.',
+            showConfirmButton: true,
+          })
         });
       }else{
         if(response.status === "OK"){
@@ -134,9 +169,24 @@ export class FormularioComponent  {
           showConfirmButton: false,
           timer: 2500
         })
-        };
+        }/*else{
+          let mensaje = response.split("||")
+          Swal.fire({
+            icon: 'error',
+            title: localStorage.getItem('idioma') == 'es' ? mensaje[0] : localStorage.getItem('idioma') == 'en' ? mensaje[1] : 'Já existe uma conta de utilizador com este e-mail, por favor verifique.',
+            showConfirmButton: true,
+          })
+        };*/
       }
       
+  }, error => {
+    console.log("error", error);
+    let mensaje = error.error.message.includes('||') ? error.error.message.split("||") : error.message
+    Swal.fire({
+      icon: 'error',
+      title: error.error.message.includes('||') ? localStorage.getItem('idioma') == 'es' ? mensaje[0] : localStorage.getItem('idioma') == 'en' ? mensaje[1] : 'Já existe uma conta de utilizador com este e-mail, por favor verifique.' : mensaje,
+      showConfirmButton: true,
+    })
   });
   
   }else {

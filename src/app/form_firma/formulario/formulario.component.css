@@ -64,3 +64,10 @@
       border-color: #e35228;
     }
   }
+
+  @media screen and (max-width: 600px) {
+    .container{
+      margin: 40px;
+      padding-left: 0px !important;
+    }
+  }

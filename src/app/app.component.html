@@ -41,6 +41,12 @@
         {{"parrafo1" | translate}}
       </div>
     </section>
+    <section>
+      <div class="logo-container">
+        <img *ngIf="idioma === 'es'" class="logos" style="width: 30%; margin: 20px 35% -10px;" src="./assets/img/logo_Manifiesto_sobre_la_ciencia_como_bien_público_global_Acceso_Abierto_No_Comercial_esp.png" alt="">
+        <img *ngIf="idioma === 'en'" class="logos" style="width: 30%; margin: 20px 35% -10px;" src="./assets/img/logo_Manifiesto_sobre_la_ciencia_como_bien_público_global_Acceso_Abierto_No_Comercial_eng.png" alt="">
+      </div>
+    </section>
     <section class="md-section">
       <div class="sub-container">
         <div class="img" style="text-align: center;">
@@ -110,10 +116,10 @@
     </section>
     <section>
       <div class="form">
-        <div style="width: 50%; background-color: #f5f5f5; display: flex; justify-content: center; align-items: center;">
+        <div class="form-div" style="width: 50%; background-color: #f5f5f5; display: flex; justify-content: center; align-items: center;">
           <img style="width: 30%;" src="./assets/img/img_OAD.png" alt="">
         </div>
-        <div style="width: 50%; background-color: gainsboro;">
+        <div class="form-div" style="width: 50%; background-color: gainsboro;">
           <app-formulario></app-formulario>
         </div>
 
