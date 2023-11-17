@@ -32,6 +32,11 @@ export class PaisesService {
     
   }
 
+  public getDatosMapa(): Observable<any>{
+    return this.http.get(environment.files + '/usuarios/usuario/recuperarDatosPaises');
+  }
+
+
 
 }
 

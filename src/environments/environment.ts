@@ -5,7 +5,9 @@
 export const environment = {
   production: false,
   urlBack: 'http://148.215.24.201:5000',
-  files: 'http://148.215.24.201:5000/siir'
+  files: 'http://148.215.24.201:5000/siir',
+  urlProject: 'http://localhost:58631/',
+
 };
 
 /*
