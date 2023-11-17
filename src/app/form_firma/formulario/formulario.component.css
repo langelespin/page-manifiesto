@@ -63,6 +63,19 @@
     .mat-radio-outer-circle{
       border-color: #e35228;
     }
+
+    .mat-radio-group{
+      width: 50%;
+    }
+  }
+
+  ::deep .mat-radio-label {
+    cursor: pointer;
+    white-space: normal;
+  }
+
+  .input-fullw {
+    width: 90%;
   }
 
   @media screen and (max-width: 600px) {
