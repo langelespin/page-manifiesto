@@ -146,7 +146,7 @@ export class FormularioComponent  {
           if(response.status === "OK"){
             Swal.fire({
             icon: 'success',
-            title: localStorage.getItem('idioma') == 'es' ? 'Su firma se registró correctamente' : localStorage.getItem('idioma') == 'en' ? 'Your signature was successfully recorded' : 'Su firma se registró correctamente',
+            title: localStorage.getItem('idioma') == 'es' ? 'Su firma se registró correctamente' : localStorage.getItem('idioma') == 'en' ? 'Your signature was successfully recorded' : 'A sua assinatura foi registada corretamente',
             showConfirmButton: false,
             timer: 2500
           })
@@ -165,7 +165,7 @@ export class FormularioComponent  {
         if(response.status === "OK"){
           Swal.fire({
           icon: 'success',
-          title: localStorage.getItem('idioma') == 'es' ? 'Su firma se registró correctamente' : localStorage.getItem('idioma') == 'en' ? 'Your signature was successfully recorded' : 'Su firma se registró correctamente',
+          title: localStorage.getItem('idioma') == 'es' ? 'Su firma se registró correctamente' : localStorage.getItem('idioma') == 'en' ? 'Your signature was successfully recorded' : 'A sua assinatura foi registada corretamente',
           showConfirmButton: false,
           timer: 2500
         })
