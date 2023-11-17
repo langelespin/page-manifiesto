@@ -111,10 +111,7 @@ ol {
     color: gray;
   }
   
-  .logos{
-    width: 20%;
-    margin: 20px 40% -10px;
-  }
+  
 
   @media screen and (max-width: 600px) {
     .form {
@@ -128,5 +125,24 @@ ol {
       margin: 20px 27% -10px;
     }
     
+  }
+
+  @media only screen and (min-width: 600px) {
+    .logos{
+      width: 35%;
+      margin: 20px 30% -10px;
+    }
+  }
+  @media only screen and (min-width: 800px) {
+    .logos{
+      width: 25%;
+      margin: 20px 40% -10px;
+    }
+  }
+  @media only screen and (min-width: 1200px) {
+    .logos{
+      width: 20%;
+      margin: 20px 40% -10px;
+    }
   }
 
