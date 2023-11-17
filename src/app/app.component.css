@@ -110,6 +110,10 @@ ol {
     margin-top: 40px;
     color: gray;
   }
+  
+  .logos{
+    margin: 20px 40% -10px;
+  }
 
   @media screen and (max-width: 600px) {
     .form {
@@ -117,6 +121,11 @@ ol {
     }
     .form-div{
       width: 100% !important;
+    }
+
+    .logos{
+      width: 45% !important;
+      margin: 20px 27% -10px;
     }
     
   }
