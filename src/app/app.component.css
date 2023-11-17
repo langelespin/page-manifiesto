@@ -112,6 +112,7 @@ ol {
   }
   
   .logos{
+    width: 20%;
     margin: 20px 40% -10px;
   }
 
@@ -122,9 +123,8 @@ ol {
     .form-div{
       width: 100% !important;
     }
-
     .logos{
-      width: 45% !important;
+      width: 45%;
       margin: 20px 27% -10px;
     }
     
