@@ -57,7 +57,7 @@ export class FormularioComponent  {
           var bandera:boolean = false;
           img.onload = function () 
           {
-            bandera = img.width<181&&img.width>174&&img.height>89&&img.height<96;
+            bandera = img.width<281&&img.width>274&&img.height>189&&img.height<196;
           };
           img.src = URL.createObjectURL(file);
           setTimeout(()=>{
@@ -69,7 +69,7 @@ export class FormularioComponent  {
           }else{
             Swal.fire({
               icon: 'error',
-              title: 'Las dimensiones del logo deben ser de largo de 175px-180px y de ancho de 90px-95px.',
+              title: 'Las dimensiones del logo deben ser de largo de 275px-280px y de ancho de 190px-195px.',
               showConfirmButton: true,
             })
             this.formFirm.controls['logo'].setValue(null)
