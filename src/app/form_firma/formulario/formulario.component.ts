@@ -35,6 +35,7 @@ export class FormularioComponent  {
     
     this.paisesService.getAllPaises().subscribe( result => {
       this.pais = result;
+      this.pais = this.pais.filter((pais) => pais.value != 96);
       console.log(this.pais)
     }, error => {console.log("error", error)});
   }
