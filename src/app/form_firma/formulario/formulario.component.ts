@@ -23,7 +23,7 @@ export class FormularioComponent  {
     cargo: ['', [Validators.required]],
     pais: ['', [Validators.required]],
     logo: [''],
-    recaptcha: ['', [Validators.required]]
+    recaptcha: ['', []]
   })
   constructor(
     private paisesService: PaisesService,
@@ -132,7 +132,7 @@ export class FormularioComponent  {
       "cargo": this.formFirm.get('cargo')?.value,
       "institucion": this.formFirm.get('institucion')?.value,
       "pais": this.formFirm.get('pais')?.value,
-      "logo": this.formFirm.get('logo')?.value,
+      "logo": this.formFirm.controls['logo'].value === null || this.formFirm.controls['logo'].value === '' ? 'false' : 'true',
       "tipo": Number(this.formFirm.get('tipo')?.value)
     }
    }
@@ -143,6 +143,7 @@ export class FormularioComponent  {
       if(this.formData != undefined && this.formData != null){
         this.fileName = '/'+response.id+'_logo'+this.fileExt;
         this.formFirm.controls['logo'].setValue(this.fileName);
+        console.log(this.formFirm.controls['logo'].value);
         this.formData.append("archivo", this.file,this.fileName!);
         // console.log("fileName", this.fileName);
         this.paisesService.postSubirArchivo(this.formData).subscribe(a=>{
