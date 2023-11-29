@@ -35,3 +35,33 @@ div{
 @media only screen and (min-width: 1200px) {
 
 }
+
+table {
+    width: 100%;
+    margin: 0 5%;
+}
+
+th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
+    border-bottom-color: rgba(0, 0, 0, 0.2);
+    border-top-color: rgba(0, 0, 0, 0.2);
+    padding: 10px 0px;
+}
+
+.example-form {
+    width: 100%;
+}
+  
+  .example-full-width {
+    width: 100%;
+  }
+
+  #buscador{
+    height: fit-content;
+    display: flex;
+    align-items: baseline;
+    padding: 5px 5%;
+  }
+
+  #buscador > i{
+    margin: auto 15px;
+  }

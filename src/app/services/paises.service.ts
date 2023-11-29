@@ -36,6 +36,11 @@ export class PaisesService {
     return this.http.get(environment.files + '/usuarios/usuario/recuperarDatosPaises');
   }
 
+  getRegistrosFirma(): Observable<any>{
+    console.log(1)
+    return this.http.get(environment.files + '/usuarios/usuario/recuperarRegistrosFirma');
+  }
+
 
 
 }
