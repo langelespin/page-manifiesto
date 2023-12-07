@@ -14,9 +14,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { NgxCaptchaModule } from 'ngx-captcha';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { MapComponent } from './map/map.component';
 import { MatTableModule } from '@angular/material/table';
-
+import { MapComponent } from './map/map.component';
+import {MatPaginatorModule} from '@angular/material/paginator';
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/');
 }
@@ -41,6 +41,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatInputModule,
     NgxCaptchaModule,
     MatTableModule,
+    MatPaginatorModule,
     TranslateModule.forRoot({
       loader: {
           provide: TranslateLoader,

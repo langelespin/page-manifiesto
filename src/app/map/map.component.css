@@ -38,7 +38,7 @@ div{
 
 table {
     width: 100%;
-    margin: 0 5%;
+    margin: 0 auto;
 }
 
 th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
@@ -63,5 +63,12 @@ th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
   }
 
   #buscador > i{
-    margin: auto 15px;
+    margin: auto 1px;
   }
+
+  #paginator{
+    margin: 30px auto;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+}
