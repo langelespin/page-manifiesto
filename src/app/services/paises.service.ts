@@ -32,6 +32,16 @@ export class PaisesService {
     
   }
 
+  public getDatosMapa(): Observable<any>{
+    return this.http.get(environment.files + '/usuarios/usuario/recuperarDatosPaises');
+  }
+
+  getRegistrosFirma(data: any): Observable<any>{
+    //return this.http.get(environment.files + '/usuarios/usuario/recuperarRegistrosFirma');
+    return this.http.post(environment.files + '/usuarios/usuario/buscadorFirmas', data);
+  }
+
+
 
 }
 

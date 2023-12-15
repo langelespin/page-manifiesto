@@ -1,0 +1,63 @@
+<!--<div>
+    <div id="chartdiv"></div>
+</div>
+-->
+<div style="width: 100%; padding: 10px;">
+    <div id="chartdiv2" style="width: 100% important;"></div>
+</div>
+
+<div id="buscador">
+    <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <mat-label>{{ 'buscar' | translate }}</mat-label>
+          <input type="text" matInput [formControl]="serachFormControl" placeholder="">
+        </mat-form-field>
+      </form>
+    <i class="fa fa-search" aria-hidden="true" (click)="updateData('busqueda')"></i>
+</div>
+
+<mat-paginator #paginator
+               class="demo-paginator"
+               (page)="handlePageEvent($event)"
+               [length]="length"
+               [pageSize]="pageSize"
+               [disabled]="disabled"
+               [showFirstLastButtons]="showFirstLastButtons"
+               [pageSizeOptions]="showPageSizeOptions ? pageSizeOptions : []"
+               [hidePageSize]="hidePageSize"
+               [pageIndex]="pageIndex"
+               aria-label="Select page">
+</mat-paginator>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+     <!-- Name Column -->
+     <ng-container matColumnDef="name">
+        <!--<th mat-header-cell *matHeaderCellDef>  </th>-->
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="institution">
+        <!--<th mat-header-cell *matHeaderCellDef>  </th>-->
+        <td mat-cell *matCellDef="let element"> {{element.institution}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="country">
+        <!--<th mat-header-cell *matHeaderCellDef>  </th>-->
+        <td mat-cell *matCellDef="let element"> {{element.country}} </td>
+      </ng-container>
+
+    <!-- Type Column -->
+    <ng-container matColumnDef="type">
+      <!--<th mat-header-cell *matHeaderCellDef>  </th>-->
+      <td mat-cell *matCellDef="let element" style="COLOR: #FF4C00;">
+        <i *ngIf="element.type == 1" class="fa fa-building-o fa-2x" aria-hidden="true"></i>
+        <i *ngIf="element.type == 2" class="fa fa-user fa-2x" aria-hidden="true"></i>
+      </td>
+    </ng-container>
+  
+    <!--<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>-->
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
