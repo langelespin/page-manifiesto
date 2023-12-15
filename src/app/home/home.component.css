@@ -91,6 +91,37 @@ ol {
     
   }
   
+  .div-buttons{
+    position: absolute;
+    left: 21%;
+    top: 70px;
+    color: #FF4C00;
+    border-color: #FF4C00;
+    background-color: #fff;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 3px;
+    color: #fff;
+    border-color: #FF4C00;
+    background-color: #FF4C00;
+    text-decoration: none;
+  }
+  .div-buttons2{
+    position: absolute;
+    left: 28%;
+    top: 70px;
+    color: #FF4C00;
+    border-color: #FF4C00;
+    background-color: #fff;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 3px;
+    color: #fff;
+    border-color: #FF4C00;
+    background-color: #FF4C00;
+    text-decoration: none;
+  }
+
   .idomaBtn{
     color: #FF4C00;
     border-color: #FF4C00;

@@ -4,7 +4,13 @@
 
       </div>
     </header>
-    <section>
+    <section >
+      <a class="div-buttons" *ngIf="idioma === 'es'" 
+                href="https://globaldiamantoa.org/manifiesto/"
+                download>Manifiesto</a>
+      <a class="div-buttons2" *ngIf="idioma === 'es'" 
+                href="http://148.215.24.162:4200/mapa"
+                download>Firmantes</a>
       <div id="divButtonsTranslate">
         <button 
           class="idomaBtn"
