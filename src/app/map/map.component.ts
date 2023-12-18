@@ -65,6 +65,8 @@ export class MapComponent implements OnInit {
 
   pageEvent: PageEvent | undefined;
 
+  totalPersonas: number = 0;
+
 
 
 
@@ -212,6 +214,7 @@ export class MapComponent implements OnInit {
           }
     }
     this.paisesService.getRegistrosFirma(busqueda).subscribe((data: any) =>{
+      this.totalPersonas = 20
       this.busquedaFirmantes(data)
       this.length = data.totalElements  
     })

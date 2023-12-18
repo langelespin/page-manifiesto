@@ -83,21 +83,26 @@ ol {
     display: flex;
   }
 
-  
+  #divButtons{
+    display: flex;
+    flex-wrap: wrap;
+    height: 50px;
+  }
+
   #divButtonsTranslate{
     position: absolute;
     right: 20%;
     top: 70px;
     
   }
-  
-  .div-buttons{
+
+  #div_buttons{
     position: absolute;
     left: 21%;
     top: 70px;
-    color: #FF4C00;
-    border-color: #FF4C00;
-    background-color: #fff;
+  }
+  
+  .div-buttons{
     padding: 5px;
     cursor: pointer;
     border-radius: 3px;
@@ -107,12 +112,6 @@ ol {
     text-decoration: none;
   }
   .div-buttons2{
-    position: absolute;
-    left: 28%;
-    top: 70px;
-    color: #FF4C00;
-    border-color: #FF4C00;
-    background-color: #fff;
     padding: 5px;
     cursor: pointer;
     border-radius: 3px;
@@ -154,6 +153,15 @@ ol {
     .logos{
       width: 45%;
       margin: 20px 27% -10px;
+    }
+    #divButtons{
+      height: 80px;
+    }
+    #div_buttons{
+      position: absolute;
+      right: 20%;
+      top: 120px;
+      
     }
     
   }

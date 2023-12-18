@@ -5,32 +5,34 @@
       </div>
     </header>
     <section >
-      <a class="div-buttons" *ngIf="idioma === 'es'" 
-                href="https://globaldiamantoa.org/manifiesto/"
-                download>Manifiesto</a>
-      <a class="div-buttons2" *ngIf="idioma === 'es'" 
-                href="http://148.215.24.162:4200/mapa"
-                download>Firmantes</a>
-      <div id="divButtonsTranslate">
-        <button 
+      <div id="divButtons">
+        <div id="div_buttons">
+          <a *ngIf="idioma === 'es'" href="https://globaldiamantoa.org/manifiesto/"><button class="div-buttons">Manifiesto</button></a>
+          <a *ngIf="idioma === 'es'" href="http://148.215.24.162:4200/mapa"><button class="div-buttons2">Firmantes</button></a>
+        </div>
+        
+        <div id="divButtonsTranslate">
+          <button 
+            class="idomaBtn"
+            (click)="translate('es')"
+            [ngClass]="{'selected' : idioma  == 'es' || idioma  == null, 'unselected' : idioma != 'es'}">
+              ES
+          </button>
+          <button 
           class="idomaBtn"
-          (click)="translate('es')"
-          [ngClass]="{'selected' : idioma  == 'es' || idioma  == null, 'unselected' : idioma != 'es'}">
-            ES
-        </button>
-        <button 
-        class="idomaBtn"
-          (click)="translate('en')"
-          [ngClass]="{'selected' : idioma  == 'en', 'unselected' : idioma != 'en'}">
-            EN
-        </button>
-        <button
-        class="idomaBtn"
-          (click)="translate('pt')"
-          [ngClass]="{'selected' : idioma  == 'pt', 'unselected' : idioma != 'pt'}">
-            PT
-        </button>
+            (click)="translate('en')"
+            [ngClass]="{'selected' : idioma  == 'en', 'unselected' : idioma != 'en'}">
+              EN
+          </button>
+          <button
+          class="idomaBtn"
+            (click)="translate('pt')"
+            [ngClass]="{'selected' : idioma  == 'pt', 'unselected' : idioma != 'pt'}">
+              PT
+          </button>
+        </div>
       </div>
+      
     </section><br>
     <section>
       <div class="text-container">

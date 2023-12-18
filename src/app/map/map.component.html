@@ -2,21 +2,35 @@
     <div id="chartdiv"></div>
 </div>
 -->
-<div style="width: 100%; padding: 10px;">
+
+<header>
+  <div style="background-image: url(./assets/img/h_bar_r.jpg); height: 50px;"></div>
+</header>
+<section>
+  <div style="padding: 10px 60px; height: auto; text-align: center;"><p style="font-size: 50px; text-align: center;"><b>Hasta la fecha, 0 personas y Instituciones u Organizaciones en 0 países han firmado el Manifiesto</b></p></div>
+</section>
+<section>
+  <div style="width: 100%; padding: 10px;">
     <div id="chartdiv2" style="width: 100% important;"></div>
-</div>
-
-<div id="buscador">
+  </div>
+</section>
+<section>
+  <div id="buscador">
     <form class="example-form">
-        <mat-form-field class="example-full-width">
-          <mat-label>{{ 'buscar' | translate }}</mat-label>
-          <input type="text" matInput [formControl]="serachFormControl" placeholder="">
-        </mat-form-field>
-      </form>
+      <mat-form-field class="example-full-width">
+        <mat-label>{{ 'buscar' | translate }}</mat-label>
+        <input type="text" matInput [formControl]="serachFormControl" placeholder="">
+      </mat-form-field>
+    </form>
     <i class="fa fa-search" aria-hidden="true" (click)="updateData('busqueda')"></i>
-</div>
-
-<mat-paginator #paginator
+  </div>
+</section>
+<section>
+  <div style="padding: 10px 30px 0px 0px; height: auto; text-align: right;"><p><b>{{ totalPersonas }} Personas Particulares</b></p></div>
+  <div style="padding: 10px 30px 0px 0px; height: auto; text-align: right;"><p><b>0 Instituciones u Organizaciones</b></p></div>
+</section>
+<section>
+  <mat-paginator #paginator
                class="demo-paginator"
                (page)="handlePageEvent($event)"
                [length]="length"
@@ -27,8 +41,10 @@
                [hidePageSize]="hidePageSize"
                [pageIndex]="pageIndex"
                aria-label="Select page">
-</mat-paginator>
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  </mat-paginator>
+</section>
+<section>
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
     <!--- Note that these columns can be defined in any order.
           The actual rendered columns are set as a property on the row definition" -->
@@ -61,3 +77,14 @@
     <!--<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>-->
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
+</section>
+<footer>
+  <div style="display: flex; justify-content: center; align-items: center; background-color: #FF4C00; padding: 40px; height: 150px;">
+    <img style="width: 50%;" src="./assets/img/logoCGAAD_eventos.png" alt="">
+  </div>
+</footer>
+
+
+
+
+  
