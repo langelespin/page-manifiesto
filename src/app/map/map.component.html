@@ -2,55 +2,53 @@
     <div id="chartdiv"></div>
 </div>
 -->
+<div *ngIf="'es'=='es'">
+  <app-encabezado></app-encabezado>
+  <section>
+    <div style="padding: 10px 60px; height: auto; text-align: center;">
+      <p style="font-size: 50px; text-align: center;"><b>{{"frase1" | translate}} {{totalPersonas}} {{"frase2" |
+          translate}} {{totalPaises}} {{"frase3" | translate}}</b></p>
+    </div>
+  </section>
+  <section>
+    <div style="width: 100%; padding: 10px;">
+      <div id="chartdiv2" style="width: 100% important;"></div>
+    </div>
+  </section>
+  <section>
+    <div id="buscador">
+      <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <mat-label>{{ 'buscar' | translate }}</mat-label>
+          <input type="text" matInput [formControl]="serachFormControl" placeholder="">
+        </mat-form-field>
+      </form>
+      <i class="fa fa-search" aria-hidden="true" (click)="updateData('busqueda')"></i>
+    </div>
+  </section>
+  <section>
+    <div style="padding: 10px 30px 0px 0px; height: auto; text-align: right;">
+      <p><b>{{ totalPersonasIn }} {{"frase4" | translate}}</b></p>
+    </div>
+    <div style="padding: 10px 30px 0px 0px; height: auto; text-align: right;">
+      <p><b>{{ totalInstOrg }} {{"frase5" | translate}}</b></p>
+    </div>
+  </section>
+  <section>
+    <mat-paginator #paginator class="demo-paginator" (page)="handlePageEvent($event)" [length]="length"
+      [pageSize]="pageSize" [disabled]="disabled" [showFirstLastButtons]="showFirstLastButtons"
+      [pageSizeOptions]="showPageSizeOptions ? pageSizeOptions : []" [hidePageSize]="hidePageSize" [pageIndex]="pageIndex"
+      aria-label="Select page">
+    </mat-paginator>
+  </section>
+  <section>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
-<header>
-  <div style="background-image: url(./assets/img/h_bar_r.jpg); height: 50px;"></div>
-</header>
-<section>
-  <div style="padding: 10px 60px; height: auto; text-align: center;"><p style="font-size: 50px; text-align: center;"><b>Hasta la fecha, 0 personas y Instituciones u Organizaciones en 0 países han firmado el Manifiesto</b></p></div>
-</section>
-<section>
-  <div style="width: 100%; padding: 10px;">
-    <div id="chartdiv2" style="width: 100% important;"></div>
-  </div>
-</section>
-<section>
-  <div id="buscador">
-    <form class="example-form">
-      <mat-form-field class="example-full-width">
-        <mat-label>{{ 'buscar' | translate }}</mat-label>
-        <input type="text" matInput [formControl]="serachFormControl" placeholder="">
-      </mat-form-field>
-    </form>
-    <i class="fa fa-search" aria-hidden="true" (click)="updateData('busqueda')"></i>
-  </div>
-</section>
-<section>
-  <div style="padding: 10px 30px 0px 0px; height: auto; text-align: right;"><p><b>{{ totalPersonas }} Personas Particulares</b></p></div>
-  <div style="padding: 10px 30px 0px 0px; height: auto; text-align: right;"><p><b>0 Instituciones u Organizaciones</b></p></div>
-</section>
-<section>
-  <mat-paginator #paginator
-               class="demo-paginator"
-               (page)="handlePageEvent($event)"
-               [length]="length"
-               [pageSize]="pageSize"
-               [disabled]="disabled"
-               [showFirstLastButtons]="showFirstLastButtons"
-               [pageSizeOptions]="showPageSizeOptions ? pageSizeOptions : []"
-               [hidePageSize]="hidePageSize"
-               [pageIndex]="pageIndex"
-               aria-label="Select page">
-  </mat-paginator>
-</section>
-<section>
-  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
 
-    <!--- Note that these columns can be defined in any order.
-          The actual rendered columns are set as a property on the row definition" -->
-
-     <!-- Name Column -->
-     <ng-container matColumnDef="name">
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
         <!--<th mat-header-cell *matHeaderCellDef>  </th>-->
         <td mat-cell *matCellDef="let element"> {{element.name}} </td>
       </ng-container>
@@ -65,24 +63,21 @@
         <td mat-cell *matCellDef="let element"> {{element.country}} </td>
       </ng-container>
 
-    <!-- Type Column -->
-    <ng-container matColumnDef="type">
-      <!--<th mat-header-cell *matHeaderCellDef>  </th>-->
-      <td mat-cell *matCellDef="let element" style="COLOR: #FF4C00;">
-        <i *ngIf="element.type == 1" class="fa fa-building-o fa-2x" aria-hidden="true"></i>
-        <i *ngIf="element.type == 2" class="fa fa-user fa-2x" aria-hidden="true"></i>
-      </td>
-    </ng-container>
-  
-    <!--<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>-->
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
-</section>
-<footer>
-  <div style="display: flex; justify-content: center; align-items: center; background-color: #FF4C00; padding: 40px; height: 150px;">
-    <img style="width: 50%;" src="./assets/img/logoCGAAD_eventos.png" alt="">
-  </div>
-</footer>
+      <!-- Type Column -->
+      <ng-container matColumnDef="type">
+        <!--<th mat-header-cell *matHeaderCellDef>  </th>-->
+        <td mat-cell *matCellDef="let element" style="COLOR: #FF4C00;">
+          <i *ngIf="element.type == 1" class="fa fa-building-o fa-2x" aria-hidden="true"></i>
+          <i *ngIf="element.type == 2" class="fa fa-user fa-2x" aria-hidden="true"></i>
+        </td>
+      </ng-container>
+
+      <!--<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>-->
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </section>
+  <app-footer></app-footer>
+</div>
 
 
 

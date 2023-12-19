@@ -18,6 +18,8 @@ import { MatTableModule } from '@angular/material/table';
 import { MapComponent } from './map/map.component';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { HomeComponent } from './home/home.component';
+import { EncabezadoComponent } from './encabezado/encabezado/encabezado.component';
+import { FooterComponent } from './footer/footer/footer.component';
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/');
 }
@@ -27,7 +29,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppComponent,
     FormularioComponent,
     MapComponent,
-    HomeComponent
+    HomeComponent,
+    EncabezadoComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

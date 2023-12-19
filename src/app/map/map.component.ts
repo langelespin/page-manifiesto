@@ -66,7 +66,10 @@ export class MapComponent implements OnInit {
   pageEvent: PageEvent | undefined;
 
   totalPersonas: number = 0;
-
+  totalPaises: number = 0;
+  totalPersonasIn: number = 0;
+  totalInstOrg: number = 0;
+  totalPerOrg: any[] =[];
 
 
 
@@ -97,9 +100,13 @@ export class MapComponent implements OnInit {
       //this.ngAfterViewInit()
     })
     this.updateData()
+
+    this.paisesService.getTotalesFirmas().subscribe((total: any) => {
+      this.totalPersonas = total.totalRegistros;
+      this.totalPaises = total.totalPaises;
+    })
   }
 
-  
   ngAfterViewInit(): void {
     /**this.chart = am4core.create('chartdiv', am4maps.MapChart); // Create map instance
     this.chart.geodata = am4geofata_wordLow; // Set map definition
@@ -213,8 +220,13 @@ export class MapComponent implements OnInit {
               "palabraBusqueda": this.serachFormControl.value
           }
     }
+    this.totalPerOrg = []
     this.paisesService.getRegistrosFirma(busqueda).subscribe((data: any) =>{
-      this.totalPersonas = 20
+      let posicion = data.content.length - 1;
+      console.log("posicion", posicion);
+      this.totalPersonasIn = data.content[posicion].tipo1;
+      this.totalInstOrg = data.content[posicion].tipo2;
+      console.log("total de personas:",  this.totalPersonasIn);
       this.busquedaFirmantes(data)
       this.length = data.totalElements  
     })

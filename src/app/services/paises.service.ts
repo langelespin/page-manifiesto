@@ -41,6 +41,10 @@ export class PaisesService {
     return this.http.post(environment.files + '/usuarios/usuario/buscadorFirmas', data);
   }
 
+  public getTotalesFirmas():Observable<any>{
+    return this.http.get(environment.files + '/usuarios/usuario/totalesFirmas');
+  } 
+
 
 
 }
