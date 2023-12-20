@@ -399,6 +399,10 @@ export class MapComponent implements OnInit {
   }
 
   busquedaFirmantes(firmantes: any){
+
+    console.log(firmantes);
+
+    firmantes.content.pop();
     //this.ELEMENT_DATA = [
     
     firmantes.content.forEach((element: any, index: any) => {
