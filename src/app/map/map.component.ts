@@ -8,7 +8,7 @@ import { Country } from '../models/Country.model';
 import { PaisesService } from '../services/paises.service';
 import { environment } from '../../environments/environment';
 import { TranslateService } from '@ngx-translate/core';
-import { MatTable, MatTableDataSource } from '@angular/material/table';
+import { MatTable, MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { FormControl} from '@angular/forms';
 
 import am5themes_Animated from "@amcharts/amcharts5/themes/Animated";
@@ -37,7 +37,7 @@ export class MapComponent implements OnInit {
   //Tabla
   @ViewChild(MatTable) table?: MatTable<any>;
 
-  displayedColumns: string[] = ['name', 'institution', 'country', 'type'];
+  displayedColumns: any[] = ['name', 'institution', 'country', 'type'];
   ELEMENT_DATA: any[] = []
   dataSource = new MatTableDataSource<any>(this.ELEMENT_DATA);
 
@@ -70,6 +70,8 @@ export class MapComponent implements OnInit {
   totalPersonasIn: number = 0;
   totalInstOrg: number = 0;
   totalPerOrg: any[] =[];
+  paisSelect: string = "";
+  bandera: boolean = false;
 
 
 
@@ -227,6 +229,7 @@ export class MapComponent implements OnInit {
       this.totalPersonasIn = data.content[posicion].tipo1;
       this.totalInstOrg = data.content[posicion].tipo2;
       console.log("total de personas:",  this.totalPersonasIn);
+      this.bandera = true;
       this.busquedaFirmantes(data)
       this.length = data.totalElements  
     })
@@ -396,15 +399,18 @@ export class MapComponent implements OnInit {
   }
 
   busquedaFirmantes(firmantes: any){
-    //this.ELEMENT_DATA = []
-
+    //this.ELEMENT_DATA = [
+    
     firmantes.content.forEach((element: any, index: any) => {
       //if(element.pais != 96)
         this.ELEMENT_DATA.push({name: element.nombre+' '+element.apellidos, institution: element.institucion, country: element.paisN, type: element.tipo})
     });
-
-    console.log(this.dataSource.data)
-    console.log(this.ELEMENT_DATA)
+    
+    console.log("1.", this.dataSource.data)
+    console.log("2", this.ELEMENT_DATA)
+    this.paisSelect = this.ELEMENT_DATA[0].country;
+      console.log("pais", this.paisSelect);
+    
     this.table?.renderRows();
     this.dataSource.data = this.ELEMENT_DATA
   }

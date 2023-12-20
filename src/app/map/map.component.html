@@ -6,7 +6,7 @@
   <app-encabezado></app-encabezado>
   <section>
     <div style="padding: 10px 60px; height: auto; text-align: center;">
-      <p style="font-size: 50px; text-align: center;"><b>{{"frase1" | translate}} {{totalPersonas}} {{"frase2" |
+      <p id="title-map" style="text-align: center;"><b>{{totalPersonas}} {{"frase2" |
           translate}} {{totalPaises}} {{"frase3" | translate}}</b></p>
     </div>
   </section>
@@ -27,6 +27,9 @@
     </div>
   </section>
   <section>
+    <div style="padding: 10px 30px 0px 0px; height: auto; text-align: right; COLOR: #FF4C00;">
+      <p><b>{{ 'firmantes' | translate}} {{paisSelect}}</b></p>
+    </div>
     <div style="padding: 10px 30px 0px 0px; height: auto; text-align: right;">
       <p><b>{{ totalPersonasIn }} {{"frase4" | translate}}</b></p>
     </div>
@@ -43,36 +46,43 @@
   </section>
   <section>
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-
-      <!--- Note that these columns can be defined in any order.
-            The actual rendered columns are set as a property on the row definition" -->
-
       <!-- Name Column -->
       <ng-container matColumnDef="name">
-        <!--<th mat-header-cell *matHeaderCellDef>  </th>-->
+        <th mat-header-cell *matHeaderCellDef style="font-size: 17px; color: rgba(0,0,0,.87); text-align: center;"> Nombre </th>
         <td mat-cell *matCellDef="let element"> {{element.name}} </td>
       </ng-container>
 
       <ng-container matColumnDef="institution">
-        <!--<th mat-header-cell *matHeaderCellDef>  </th>-->
+        <th mat-header-cell *matHeaderCellDef style="font-size: 17px; color: rgba(0,0,0,.87); text-align: center;"> Institución </th>
         <td mat-cell *matCellDef="let element"> {{element.institution}} </td>
       </ng-container>
 
       <ng-container matColumnDef="country">
-        <!--<th mat-header-cell *matHeaderCellDef>  </th>-->
+        <th mat-header-cell *matHeaderCellDef style="font-size: 17px; color: rgba(0,0,0,.87); text-align: center;"> País </th>
         <td mat-cell *matCellDef="let element"> {{element.country}} </td>
       </ng-container>
 
       <!-- Type Column -->
       <ng-container matColumnDef="type">
-        <!--<th mat-header-cell *matHeaderCellDef>  </th>-->
+        <th mat-header-cell *matHeaderCellDef style="font-size: 17px; color: rgba(0,0,0,.87); text-align: center;"> Tipo de Firma </th>
         <td mat-cell *matCellDef="let element" style="COLOR: #FF4C00;">
-          <i *ngIf="element.type == 1" class="fa fa-building-o fa-2x" aria-hidden="true"></i>
-          <i *ngIf="element.type == 2" class="fa fa-user fa-2x" aria-hidden="true"></i>
+          <i *ngIf="element.type=== 1 && idioma === 'es'" class="fa fa-building-o fa-2x" aria-hidden="true" style="cursor: pointer;"
+          data-toggle="tooltip" data-placement="top" title="Instituciones u otras Organizaciones"></i>
+          <i *ngIf="element.type=== 1 && idioma === 'en'" class="fa fa-building-o fa-2x" aria-hidden="true" style="cursor: pointer;"
+          data-toggle="tooltip" data-placement="top" title="Institutions or other organizations"></i>
+          <i *ngIf="element.type=== 1 && idioma === 'pt'" class="fa fa-building-o fa-2x" aria-hidden="true" style="cursor: pointer;"
+          data-toggle="tooltip" data-placement="top" title="Instituciones u otras Organizaciones"></i>
+          <i *ngIf="element.type === 2 && idioma === 'es'" class="fa fa-user fa-2x" aria-hidden="true"
+          style="cursor: pointer;" data-toggle="tooltip" data-placement="top" title="Personas como particulares"></i>
+          <i *ngIf="element.type === 2 && idioma === 'en'" class="fa fa-user fa-2x" aria-hidden="true"
+          style="cursor: pointer;" data-toggle="tooltip" data-placement="top" title="People signing as individuals"></i>
+          <i *ngIf="element.type === 2 && idioma === 'pt'" class="fa fa-user fa-2x" aria-hidden="true"
+          style="cursor: pointer;" data-toggle="tooltip" data-placement="top" title="Personas como particulares"></i>
         </td>
+        
       </ng-container>
 
-      <!--<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>-->
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
   </section>
