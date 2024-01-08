@@ -223,7 +223,7 @@ export class MapComponent implements OnInit {
               "paginado": Number(this.pageSize),
               "palabraBusqueda": this.serachFormControl.value
           }
-    }
+    } 
     this.totalPerOrg = []
     this.paisesService.getRegistrosFirma(busqueda).subscribe((data: any) =>{
       let posicion = data.content.length - 1;
@@ -234,6 +234,7 @@ export class MapComponent implements OnInit {
       this.busquedaFirmantes(data);
 
       this.length = data.totalElements;
+    
     })
     
   }
@@ -403,14 +404,12 @@ export class MapComponent implements OnInit {
 
   busquedaFirmantes(firmantes: any){
     //this.ELEMENT_DATA = [
-    
     firmantes.content.forEach((element: any, index: any) => {
       //if(element.pais != 96)
       
         this.ELEMENT_DATA.push({name: element.nombre+' '+element.apellidos, institution: element.institucion, country: element.paisN, type: element.tipo})
     });
-    console.log("firmantes", firmantes.content);
-    firmantes.content.pop();
+
     this.table?.renderRows();
     this.dataSource.data = this.ELEMENT_DATA;
     console.log("1.", this.dataSource.data)
@@ -420,7 +419,9 @@ export class MapComponent implements OnInit {
     if (this.pais != null) {
       this.bandera = true;
       this.paisSelect = this.ELEMENT_DATA[0].country;
-    } 
+    }else{
+      this.paisSelect = this.ELEMENT_DATA[0].country;
+    }
 
 
     console.log("pais", this.paisSelect);
