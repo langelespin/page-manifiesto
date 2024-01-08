@@ -65,8 +65,8 @@ export class MapComponent implements OnInit {
 
   pageEvent: PageEvent | undefined;
 
-  totalPersonas: number = 0;
-  totalPaises: number = 0;
+  totalPersonas: number = 10;
+  totalPaises: number = 20;
   totalPersonasIn: number = 0;
   totalInstOrg: number = 0;
   totalPerOrg: any[] =[];
@@ -203,7 +203,9 @@ export class MapComponent implements OnInit {
         'dataField': 'value'
       });*/
 
-   })
+   });
+
+
    
   }
 
@@ -226,13 +228,14 @@ export class MapComponent implements OnInit {
     this.paisesService.getRegistrosFirma(busqueda).subscribe((data: any) =>{
       let posicion = data.content.length - 1;
       console.log("posicion", posicion);
-      this.totalPersonasIn = data.content[posicion].tipo1;
-      this.totalInstOrg = data.content[posicion].tipo2;
+      this.totalPersonasIn = data.content[posicion].tipo2;
+      this.totalInstOrg = data.content[posicion].tipo1;
       console.log("total de personas:",  this.totalPersonasIn);
-      this.bandera = true;
-      this.busquedaFirmantes(data)
-      this.length = data.totalElements  
+      this.busquedaFirmantes(data);
+
+      this.length = data.totalElements;
     })
+    
   }
 
 
@@ -403,15 +406,24 @@ export class MapComponent implements OnInit {
     
     firmantes.content.forEach((element: any, index: any) => {
       //if(element.pais != 96)
+      
         this.ELEMENT_DATA.push({name: element.nombre+' '+element.apellidos, institution: element.institucion, country: element.paisN, type: element.tipo})
     });
-    
+    console.log("firmantes", firmantes.content);
+    firmantes.content.pop();
+    this.table?.renderRows();
+    this.dataSource.data = this.ELEMENT_DATA;
     console.log("1.", this.dataSource.data)
     console.log("2", this.ELEMENT_DATA)
-    this.paisSelect = this.ELEMENT_DATA[0].country;
-      console.log("pais", this.paisSelect);
+    console.log("PAISSS", this.pais);
     
-    this.table?.renderRows();
-    this.dataSource.data = this.ELEMENT_DATA
+    if (this.pais != null) {
+      this.bandera = true;
+      this.paisSelect = this.ELEMENT_DATA[0].country;
+    } 
+
+
+    console.log("pais", this.paisSelect);
+
   }
 }
