@@ -411,6 +411,10 @@ export class MapComponent implements OnInit {
 
   busquedaFirmantes(firmantes: any){
     this.serachFormControl.setValue('');
+
+    console.log(firmantes);
+
+    firmantes.content.pop();
     //this.ELEMENT_DATA = [
     firmantes.content.forEach((element: any, index: any) => {
       //if(element.pais != 96)
