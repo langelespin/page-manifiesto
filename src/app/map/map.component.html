@@ -20,15 +20,22 @@
       <form class="example-form">
         <mat-form-field class="example-full-width">
           <mat-label>{{ 'buscar' | translate }}</mat-label>
-          <input type="text" matInput [formControl]="serachFormControl" placeholder="">
+          <input type="text" matInput [formControl]="serachFormControl" placeholder="" (keyup.enter)="updateData('busqueda')">
         </mat-form-field>
       </form>
-      <i class="fa fa-search" aria-hidden="true" (click)="updateData('busqueda')"></i>
+      <i class="fa fa-search" aria-hidden="true" (click)="updateData('busqueda')" ></i><br>
+    </div>
+    <div style="padding: 10px 30px 0px 0px; height: auto; text-align: right;" *ngIf="busquedaPalabra == 'busqueda'">
+      <p><b>{{ totalPersonasIn }} {{"frase4" | translate}}</b></p>
+    </div>
+    <div style="padding: 10px 30px 0px 0px; height: auto; text-align: right;" *ngIf="busquedaPalabra == 'busqueda'">
+      <p><b>{{ totalInstOrg }} {{"frase5" | translate}}</b></p>
     </div>
   </section>
-  <section *ngIf="bandera != false">
+  <section *ngIf="pais != null">
     <div style="padding: 10px 30px 0px 0px; height: auto; text-align: right; COLOR: #FF4C00;">
-      <p><b>{{ 'firmantes' | translate}} {{paisSelect}}</b></p>
+      <p *ngIf="paisSelect == 'Latinoamericanistas'"><b>{{ 'firmantes' | translate}} {{paisSelect}}</b></p>
+      <img [src]="banderaSelect" width="60" height="35">
     </div>
     <div style="padding: 10px 30px 0px 0px; height: auto; text-align: right;">
       <p><b>{{ totalPersonasIn }} {{"frase4" | translate}}</b></p>
@@ -36,12 +43,8 @@
     <div style="padding: 10px 30px 0px 0px; height: auto; text-align: right;">
       <p><b>{{ totalInstOrg }} {{"frase5" | translate}}</b></p>
     </div>
-    <!-- <div style="padding: 10px 30px 0px 0px; height: auto; text-align: right;">
-      <p><b>{{ totalPersonasIn }} {{"frase4" | translate}}</b></p>
-    </div>
-    <div style="padding: 10px 30px 0px 0px; height: auto; text-align: right;">
-      <p><b>{{ totalInstOrg }} {{"frase5" | translate}}</b></p>
-    </div> -->
+    <!-- <div style="padding: 10px 30px 0px 0px; height: auto; text-align: right; COLOR: #FF4C00;">
+      <p><b>{{ 'firmantes' | translate}} {{paisSelect}}</b></p> -->
   </section>
   <section>
     <mat-paginator #paginator class="demo-paginator" (page)="handlePageEvent($event)" [length]="length"
@@ -65,7 +68,7 @@
 
       <ng-container matColumnDef="country">
         <th mat-header-cell *matHeaderCellDef style="font-size: 17px; color: rgba(0,0,0,.87); text-align: center;"> País </th>
-        <td mat-cell *matCellDef="let element"> {{element.country}} </td>
+        <td mat-cell *matCellDef="let element"> {{element.country}} <img [src]="banderaSelect" width="30" height="15" style="margin: 0px 15px;" *ngIf="busquedaPalabra == 'busqueda' || busquedaPalabra == ''"> </td>
       </ng-container>
 
       <!-- Type Column -->

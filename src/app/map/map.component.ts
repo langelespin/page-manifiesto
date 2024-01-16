@@ -41,6 +41,7 @@ export class MapComponent implements OnInit {
   ELEMENT_DATA: any[] = []
   dataSource = new MatTableDataSource<any>(this.ELEMENT_DATA);
 
+
   serachFormControl = new FormControl('', []);
   
   //private urlProject: string = environment.urlProject;
@@ -72,6 +73,10 @@ export class MapComponent implements OnInit {
   totalPerOrg: any[] =[];
   paisSelect: string = "";
   bandera: boolean = false;
+  busquedaPalabra: string = "";
+
+  rutaBandera: string = 'assets/img/banderas/';
+  banderaSelect: string = "";
 
 
 
@@ -211,10 +216,12 @@ export class MapComponent implements OnInit {
 
   updateData(tipo?: any)
   {
+    this.busquedaPalabra = tipo;
+    console.log('33', this.busquedaPalabra);
     this.ELEMENT_DATA = []
     if(tipo == 'busqueda')
     {
-      this.pais = null
+      this.pais = null;
     }
     const busqueda = {
       "datos": {
@@ -403,6 +410,7 @@ export class MapComponent implements OnInit {
   }
 
   busquedaFirmantes(firmantes: any){
+    this.serachFormControl.setValue('');
     //this.ELEMENT_DATA = [
     firmantes.content.forEach((element: any, index: any) => {
       //if(element.pais != 96)
@@ -416,12 +424,12 @@ export class MapComponent implements OnInit {
     console.log("2", this.ELEMENT_DATA)
     console.log("PAISSS", this.pais);
     
-    if (this.pais != null) {
-      this.bandera = true;
+    // if (this.pais != null) {
+    //   this.bandera = true;
       this.paisSelect = this.ELEMENT_DATA[0].country;
-    }else{
-      this.paisSelect = this.ELEMENT_DATA[0].country;
-    }
+      this.banderaSelect = `${this.rutaBandera}${this.paisSelect.replace(/ /g, '-')}.png`;
+      
+    // }
 
 
     console.log("pais", this.paisSelect);
