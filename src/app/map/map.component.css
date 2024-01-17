@@ -48,11 +48,13 @@ th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
 }
 
 .example-form {
-    width: 100%;
+    width: 60%;
+    position: relative;
+    right: 12%;
 }
   
   .example-full-width {
-    width: 100%;
+    width: 60%;
   }
 
   #buscador{
@@ -64,6 +66,8 @@ th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
 
   #buscador > i{
     margin: auto 1px;
+    position: relative;
+    right: 22%;
   }
 
   #paginator{
