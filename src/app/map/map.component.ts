@@ -74,6 +74,7 @@ export class MapComponent implements OnInit {
   paisSelect: string = "";
   bandera: boolean = false;
   busquedaPalabra: string = "";
+  palabra: any;
 
   rutaBandera: string = 'assets/img/banderas/';
   banderaSelect: string = "";
@@ -231,6 +232,8 @@ export class MapComponent implements OnInit {
               "palabraBusqueda": this.serachFormControl.value
           }
     } 
+    this.palabra = busqueda.datos.palabraBusqueda;
+    console.log("grr", this.palabra);
     this.totalPerOrg = []
     this.paisesService.getRegistrosFirma(busqueda).subscribe((data: any) =>{
       let posicion = data.content.length - 1;
