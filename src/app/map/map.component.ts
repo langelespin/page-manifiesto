@@ -86,7 +86,7 @@ export class MapComponent implements OnInit {
     //this.length = e.length;
     this.pageSize = e.pageSize;
     this.pageIndex = e.pageIndex;
-    this.updateData()
+    this.updateData('busqueda');
   }
 
   setPageSizeOptions(setPageSizeOptionsInput: string) {
@@ -419,7 +419,7 @@ export class MapComponent implements OnInit {
     firmantes.content.forEach((element: any, index: any) => {
       //if(element.pais != 96)
       
-        this.ELEMENT_DATA.push({name: element.nombre+' '+element.apellidos, institution: element.institucion, country: element.paisN, type: element.tipo})
+        this.ELEMENT_DATA.push({name: element.nombre+' '+element.apellidos, institution: element.institucion, country: element.paisN, srcImg: `${this.rutaBandera}${element.paisN.replace(/ /g, '-')}.png`, type: element.tipo})
     });
 
     this.table?.renderRows();
