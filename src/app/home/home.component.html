@@ -23,7 +23,7 @@
             <em>{{"mensajeComillas" | translate}}</em>
           </p>
           <p style="text-align: right; margin-top: -10px;">{{"cita" | translate}}</p>
-          <div style="text-align: right; margin: 50px 0px;">
+          <div style="text-align: right; margin: 30px 0px;">
             <a *ngIf="idioma === 'es'" class="btn-pdf"
               href="https://globaldiamantoa.org/wp-content/uploads/2023/10/manifiestoCienciaBien-Publico.pdf"
               download>Descargar PDF</a>
@@ -35,6 +35,7 @@
               download>Descargar PDF</a>
           </div>
           <br>
+          <p style="text-align: right; margin: 0px 0px 20px 0px;"><a *ngIf="idioma === 'es'" class="enlaceMapa" routerLink="/mapa">{{"conoceFirmantes" | translate}}</a></p>
           <p [innerHTML]="'parrafo2' | translate"></p>
           <p [innerHTML]="'parrafo3' | translate"></p>
           <p [innerHTML]="'parrafo4' | translate"></p>
