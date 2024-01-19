@@ -79,6 +79,25 @@ ol {
   text-decoration: none;
   }
 
+  .enlaceMapa{
+    color: black;
+  font-size: 16px;
+  padding-right: 10px;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: 700;
+
+  }
+  .enlaceMapa:hover{
+    color: #FF4C00;
+  font-size: 16px;
+  padding-right: 10px;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: 700;
+
+  }
+
   .form{
     display: flex;
   }
