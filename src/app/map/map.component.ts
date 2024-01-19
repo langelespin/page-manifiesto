@@ -87,7 +87,7 @@ export class MapComponent implements OnInit {
     //this.length = e.length;
     this.pageSize = e.pageSize;
     this.pageIndex = e.pageIndex;
-    this.updateData('busqueda');
+    this.updateData();
   }
 
   setPageSizeOptions(setPageSizeOptionsInput: string) {
@@ -413,7 +413,7 @@ export class MapComponent implements OnInit {
   }
 
   busquedaFirmantes(firmantes: any){
-    this.serachFormControl.setValue('');
+    // this.serachFormControl.setValue('');
 
     console.log(firmantes);
 

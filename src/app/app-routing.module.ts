@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { MapComponent } from './map/map.component';
 import { HomeComponent } from './home/home.component';
 
-const routes: Routes = [
+export const routes: Routes = [
   {
     path: 'mapa',
     component: MapComponent

@@ -23,8 +23,11 @@ export class FormularioComponent  {
     cargo: ['', [Validators.required]],
     pais: ['', [Validators.required]],
     logo: [''],
-    recaptcha: ['', []]
+    recaptcha: ['', [Validators.required]]
   })
+  
+  invalidClick: any = null;
+
   constructor(
     private paisesService: PaisesService,
     private dt: FormBuilder
@@ -123,6 +126,7 @@ export class FormularioComponent  {
           });
   }
   saveDate(){
+    this.invalidClick = true;
    const data={
     "datos":{
       "id": 0,
@@ -168,6 +172,8 @@ export class FormularioComponent  {
         });
       }else{
         if(response.status === "OK"){
+          this.invalidClick = null;
+
           Swal.fire({
           icon: 'success',
           title: localStorage.getItem('idioma') == 'es' ? 'Su firma se registró correctamente' : localStorage.getItem('idioma') == 'en' ? 'Your signature was successfully recorded' : 'A sua assinatura foi registada corretamente',
@@ -185,6 +191,8 @@ export class FormularioComponent  {
       }
       
   }, error => {
+    this.invalidClick = null;
+    this.formFirm.touched;
     console.log("error", error);
     let mensaje = error.error.message.includes('||') ? error.error.message.split("||") : error.message
     Swal.fire({

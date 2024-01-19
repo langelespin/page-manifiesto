@@ -161,7 +161,7 @@
         </div>
         <div class="row mb-3">
             <div class="button-row">
-                <button [attr.disabled]="formFirm.valid ? null : true" type="submit" class="button-firm"
+                <button [attr.disabled]="formFirm.valid ? invalidClick : true" type="submit" class="button-firm"
                     (click)="saveDate()">{{"Firmar" | translate}}</button>
             </div>
         </div>

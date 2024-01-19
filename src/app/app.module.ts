@@ -20,6 +20,9 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import { HomeComponent } from './home/home.component';
 import { EncabezadoComponent } from './encabezado/encabezado/encabezado.component';
 import { FooterComponent } from './footer/footer/footer.component';
+import { RouterModule } from '@angular/router';
+import { routes } from './app-routing.module';
+
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/');
 }
@@ -54,7 +57,8 @@ export function HttpLoaderFactory(http: HttpClient) {
           useFactory: HttpLoaderFactory,
           deps: [HttpClient]
       }
-  })
+  }),
+  RouterModule.forRoot(routes, { useHash: true}),
   ],
   providers: [],
   bootstrap: [AppComponent]
