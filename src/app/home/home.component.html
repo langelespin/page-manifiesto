@@ -1,5 +1,5 @@
 <div *ngIf="'es'=='es'">
-    <app-encabezado></app-encabezado>
+    <app-encabezado (enviadoIdioma)="recibirMensaje($event)"></app-encabezado>
     <section>
       <div class="text-container">
         {{"parrafo1" | translate}}
@@ -7,9 +7,9 @@
     </section>
     <section>
       <div class="logo-container">
-        <img *ngIf="idioma === 'es'" class="logos" src="./assets/img/logo_Manifiesto_sobre_la_ciencia_como_bien_público_global_Acceso_Abierto_No_Comercial_esp.png" alt="">
-        <img *ngIf="idioma === 'en'" class="logos" src="./assets/img/logo_Manifiesto_sobre_la_ciencia_como_bien_público_global_Acceso_Abierto_No_Comercial_eng.png" alt="">
-        <img *ngIf="idioma === 'pt'" class="logos" src="./assets/img/logo_Manifesto_sobre_a_ciência_como_um_bem_público_global.png" alt="">
+        <img *ngIf="idioma === 'es'" id="logotipo" class="logos" src="./assets/img/logo_Manifiesto_sobre_la_ciencia_como_bien_público_global_Acceso_Abierto_No_Comercial_esp.png" alt="">
+        <!-- <img *ngIf="idioma === 'en'" class="logos" src="./assets/img/logo_Manifiesto_sobre_la_ciencia_como_bien_público_global_Acceso_Abierto_No_Comercial_eng.png" alt="">
+        <img *ngIf="idioma === 'pt'" class="logos" src="./assets/img/logo_Manifesto_sobre_a_ciência_como_um_bem_público_global.png" alt=""> -->
       </div>
     </section>
     <section class="md-section">
@@ -24,15 +24,15 @@
           </p>
           <p style="text-align: right; margin-top: -10px;">{{"cita" | translate}}</p>
           <div style="text-align: right; margin: 30px 0px;">
-            <a *ngIf="idioma === 'es'" class="btn-pdf"
+            <a *ngIf="idioma === 'es'" class="btn-pdf" id="archivoPdf"
               href="https://globaldiamantoa.org/wp-content/uploads/2023/10/manifiestoCienciaBien-Publico.pdf"
-              download>Descargar PDF</a>
-              <a *ngIf="idioma === 'en'" class="btn-pdf"
+              download>{{"descargarPdf" | translate}}</a>
+              <!-- <a *ngIf="idioma === 'en'" class="btn-pdf"
               href="http://globaldiamantoa.org/wp-content/uploads/2023/11/Manifesto-SciencePublicGood.pdf"
               download>Download PDF</a>
               <a *ngIf="idioma === 'pt'" class="btn-pdf"
               href="https://globaldiamantoa.org/wp-content/uploads/2023/10/Manifesto_sobre_a_ciência_como_um-bem-público_global.pdf"
-              download>Descargar PDF</a>
+              download>Descargar PDF</a> -->
           </div>
           <br>
           <p style="text-align: right; margin: 0px 0px 20px 0px;"><a *ngIf="idioma === 'es'" class="enlaceMapa" routerLink="/mapa">{{"conoceFirmantes" | translate}}</a></p>

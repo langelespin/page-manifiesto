@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output,  } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -9,6 +9,7 @@ import { TranslateService } from '@ngx-translate/core';
 export class EncabezadoComponent implements OnInit {
   title = 'form';
   idioma: any = 'es';
+  @Output() enviadoIdioma = new EventEmitter<string> ;
 
   constructor(
     private translateService:TranslateService) {
@@ -20,7 +21,8 @@ export class EncabezadoComponent implements OnInit {
   {
     localStorage.setItem('idioma', idioma+'')
     this.idioma = idioma;
-    this.translateService.use(idioma);
+    this.enviadoIdioma.emit(idioma);
+    this.translateService.use(this.idioma);
   }
 
   ngOnInit(): void {
