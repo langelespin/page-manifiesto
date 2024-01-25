@@ -78,6 +78,8 @@ export class MapComponent implements OnInit {
 
   rutaBandera: string = 'assets/img/banderas/';
   banderaSelect: string = "";
+  showImage: boolean = false;
+  paisMap: string = "";
 
 
 
@@ -113,7 +115,9 @@ export class MapComponent implements OnInit {
       this.totalPersonas = total.totalRegistros;
       this.totalPaises = total.totalPaises;
     })
+    
   }
+   
 
   ngAfterViewInit(): void {
     /**this.chart = am4core.create('chartdiv', am4maps.MapChart); // Create map instance
@@ -364,7 +368,8 @@ export class MapComponent implements OnInit {
         fill: am5.color(0xFF4C00),
         stroke: root.interfaceColors.get("background"),
         strokeWidth: 2,
-        tooltipText: "{title}"
+        tooltipText: "{title}",
+        cursorOverStyle: "pointer"
       });
 
 
@@ -434,12 +439,12 @@ export class MapComponent implements OnInit {
     // if (this.pais != null) {
     //   this.bandera = true;
       this.paisSelect = this.ELEMENT_DATA[0].country;
-      this.banderaSelect = `${this.rutaBandera}${this.paisSelect.replace(/ /g, '-')}.png`;
-      
+      this.paisMap = `${this.paisSelect.replace(/ /g, '-')}.png`;
+      this.banderaSelect = `${this.rutaBandera}${this.paisMap}`;
     // }
-
 
     console.log("pais", this.paisSelect);
 
   }
 }
+
