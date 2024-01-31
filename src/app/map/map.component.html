@@ -77,17 +77,17 @@
       <ng-container matColumnDef="type">
         <th mat-header-cell *matHeaderCellDef style="font-size: 17px; color: rgba(0,0,0,.87); text-align: center;"> Tipo de Firma </th>
         <td mat-cell *matCellDef="let element" style="COLOR: #FF4C00;">
-          <i *ngIf="element.type=== 1 && idioma === 'es'" class="fa fa-building-o fa-2x" aria-hidden="true" style="cursor: pointer;"
+          <i *ngIf="element.type=== 2 && idioma === 'es'" class="fa fa-building-o fa-2x" aria-hidden="true" style="cursor: pointer;"
           data-toggle="tooltip" data-placement="top" title="Instituciones u otras Organizaciones"></i>
-          <i *ngIf="element.type=== 1 && idioma === 'en'" class="fa fa-building-o fa-2x" aria-hidden="true" style="cursor: pointer;"
+          <i *ngIf="element.type=== 2 && idioma === 'en'" class="fa fa-building-o fa-2x" aria-hidden="true" style="cursor: pointer;"
           data-toggle="tooltip" data-placement="top" title="Institutions or other organizations"></i>
-          <i *ngIf="element.type=== 1 && idioma === 'pt'" class="fa fa-building-o fa-2x" aria-hidden="true" style="cursor: pointer;"
+          <i *ngIf="element.type=== 2 && idioma === 'pt'" class="fa fa-building-o fa-2x" aria-hidden="true" style="cursor: pointer;"
           data-toggle="tooltip" data-placement="top" title="Instituciones u otras Organizaciones"></i>
-          <i *ngIf="element.type === 2 && idioma === 'es'" class="fa fa-user fa-2x" aria-hidden="true"
+          <i *ngIf="element.type === 1 && idioma === 'es'" class="fa fa-user fa-2x" aria-hidden="true"
           style="cursor: pointer;" data-toggle="tooltip" data-placement="top" title="Personas como particulares"></i>
-          <i *ngIf="element.type === 2 && idioma === 'en'" class="fa fa-user fa-2x" aria-hidden="true"
+          <i *ngIf="element.type === 1 && idioma === 'en'" class="fa fa-user fa-2x" aria-hidden="true"
           style="cursor: pointer;" data-toggle="tooltip" data-placement="top" title="People signing as individuals"></i>
-          <i *ngIf="element.type === 2 && idioma === 'pt'" class="fa fa-user fa-2x" aria-hidden="true"
+          <i *ngIf="element.type === 1 && idioma === 'pt'" class="fa fa-user fa-2x" aria-hidden="true"
           style="cursor: pointer;" data-toggle="tooltip" data-placement="top" title="Personas como particulares"></i>
         </td>
         
