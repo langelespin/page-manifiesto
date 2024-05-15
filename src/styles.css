@@ -1,0 +1,28 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+  .mat-radio-label {
+    cursor: pointer;
+    white-space: normal;
+  }
+
+  mat-radio-group.text-wrap {
+    /* Add some space between the options for readability. */
+    /* Especially when we align the radio symbol on start position. */
+    gap: 2px;
+  
+    .mat-radio-container {
+      /* The default behavior is center. */
+      /* But the radio options are then difficult to tell apart. */
+      /* Therefore we align the radio symbol on top position. */
+      align-self: start;
+    }
+  
+    .mat-radio-label-content {
+      /* Wrap the label text. */
+      white-space: normal;
+    }
+  }

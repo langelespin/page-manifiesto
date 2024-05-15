@@ -1,0 +1,34 @@
+<header>
+    <div style="background-image: url(./assets/img/h_bar_r.jpg); height: 120px; display: flex;" >
+            <!-- <section> -->
+                <span style="background-color: black; width: 100%; opacity: 0.4;"></span>
+                <div id="divButtons">
+                    <div id="div_buttons">
+                        <a class="div-buttons" *ngIf="idioma === 'es'" href="https://globaldiamantoa.org/manifiesto/">MANIFIESTO</a>
+                        <a class="div-buttons"  *ngIf="idioma === 'es'" routerLink="/mapa">FIRMANTES</a>
+                        <a class="div-buttons" *ngIf="idioma === 'en'" href="https://globaldiamantoa.org/manifiesto/">MANIFESTO</a>
+                        <a class="div-buttons" *ngIf="idioma === 'en'" routerLink="/mapa">SINGNERS</a>
+                        <a class="div-buttons" *ngIf="idioma === 'pt'" href="https://globaldiamantoa.org/manifiesto/">MANIFIESTO</a>
+                        <a class="div-buttons" *ngIf="idioma === 'pt'" routerLink="/mapa">FIRMANTES</a>
+                    </div>
+                
+                    <div id="divButtonsTranslate">
+                        <button class="idomaBtn" (click)="translate('es')"
+                            [ngClass]="{'selected' : idioma  == 'es' || idioma  == null, 'unselected' : idioma != 'es'}">
+                            ES
+                        </button>
+                        <button class="idomaBtn" (click)="translate('en')"
+                            [ngClass]="{'selected' : idioma  == 'en', 'unselected' : idioma != 'en'}">
+                            EN
+                        </button>
+                        <button class="idomaBtn" (click)="translate('pt')"
+                            [ngClass]="{'selected' : idioma  == 'pt', 'unselected' : idioma != 'pt'}">
+                            PT
+                        </button>
+                    </div>
+                </div>
+            <!-- </section> -->
+    </div>
+  </header>
+  
+  

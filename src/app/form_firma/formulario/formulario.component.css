@@ -1,0 +1,86 @@
+.container .mat-form-field + .mat-form-field {
+    margin-left: 8px;
+
+  }
+
+  .container{
+    margin: 40px;
+    padding-left: 50px;
+  }
+  .radio-group {
+    display: flex;
+    flex-direction: column;
+    margin: 15px 0;
+    align-items: flex-start;
+  }
+  
+  .radio-button {
+    margin: 5px;
+  }
+
+  .email-field{
+    width: 22.2%;
+  }
+  
+  .button-container {
+    /*display: flex;*/
+    justify-content: center;
+    width: 120px;
+  }
+
+  .button-firm{
+    color: #fff;
+    border-color: #FF4C00;
+    background-color: #FF4C00;
+    padding-left: 48px;
+    font-size: 14px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .button-firm:disabled{
+    opacity: .5;
+    cursor:not-allowed;
+  }
+
+  .field{
+    width: 50%;
+  }
+
+  ::ng-deep {
+    .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle{
+      border-color: #e35228;
+    }
+
+    .mat-radio-button.mat-accent .mat-radio-inner-circle, .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element:not(.mat-radio-persistent-ripple), .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-persistent-ripple, .mat-radio-button.mat-accent:active .mat-radio-persistent-ripple {
+      background-color: #e35228;
+    }
+
+    .mat-radio-outer-circle{
+      border-color: #e35228;
+    }
+
+    .mat-radio-group{
+      width: 50%;
+    }
+  }
+
+  ::deep .mat-radio-label {
+    cursor: pointer;
+    white-space: normal;
+  }
+
+  .input-fullw {
+    width: 90%;
+  }
+
+  @media screen and (max-width: 600px) {
+    .container{
+      margin: 40px;
+      padding-left: 0px !important;
+    }
+  }

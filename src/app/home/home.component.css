@@ -1,0 +1,206 @@
+.sub-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.text-container{
+    width: 60%;
+    margin: 0 auto;
+    padding: 10px;
+    border-bottom: solid 1px gainsboro;
+}
+
+.md-section{
+    width: 60%;
+    margin: 20px auto;
+}
+
+h1{
+    font-size: 30pt;
+    color: #FF4C00;
+    font-weight: bold;
+    line-height: 1.3;
+    margin: 20px 10px;
+}
+
+ol {
+    /* max-width: 350px; */
+    counter-reset: my-awesome-counter;
+    list-style: none;
+    padding-left: 40px;
+    
+  }
+  ol li {
+    margin: 0 0 0.5rem 0;
+    counter-increment: my-awesome-counter;
+    position: relative;
+    padding-left: 10px;
+  }
+  ol li::before {
+    content: counter(my-awesome-counter);
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: bold;
+    position: absolute;
+    --size: 32px;
+    left: calc(-1 * var(--size) - 10px);
+    line-height: var(--size);
+    width: var(--size);
+    height: var(--size);
+    top: 0;
+    /* transform: rotate(-10deg); */
+    background: #FF4C00;
+    /* border-radius: 50%; */
+    text-align: center;
+    box-shadow: 1px 1px 0 #999;
+  }
+
+  .title-list{
+    font-weight: bold;
+    color: black;
+    font-size: 13pt;
+    padding-top: 5px;
+  }
+
+  .btn-pdf{
+    color: #fff;
+  border-color: #FF4C00;
+  background-color: #FF4C00;
+  padding-left: 48px;
+  font-size: 14px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 0px 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  }
+
+  .enlaceMapa{
+    color: black;
+  font-size: 16px;
+  padding-right: 10px;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: 700;
+
+  }
+  .enlaceMapa:hover{
+    color: #FF4C00;
+  font-size: 16px;
+  padding-right: 10px;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: 700;
+
+  }
+
+  .form{
+    display: flex;
+  }
+
+  #divButtons{
+    display: flex;
+    flex-wrap: wrap;
+    height: 50px;
+  }
+
+  #divButtonsTranslate{
+    position: absolute;
+    right: 20%;
+    top: 70px;
+    
+  }
+
+  #div_buttons{
+    position: absolute;
+    left: 21%;
+    top: 70px;
+  }
+  
+  .div-buttons{
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 3px;
+    color: #fff;
+    border-color: #FF4C00;
+    background-color: #FF4C00;
+    text-decoration: none;
+  }
+  .div-buttons2{
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 3px;
+    color: #fff;
+    border-color: #FF4C00;
+    background-color: #FF4C00;
+    text-decoration: none;
+  }
+
+  .idomaBtn{
+    color: #FF4C00;
+    border-color: #FF4C00;
+    background-color: #fff;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 3px;
+  }
+
+  .idomaBtn:hover{
+    color: #fff;
+    border-color: #FF4C00;
+    background-color: #FF4C00;
+  }
+
+  .text-container{
+    margin-top: 40px;
+    color: gray;
+  }
+  
+  
+
+  @media screen and (max-width: 600px) {
+    .form {
+      display: grid;
+    }
+    .form-div{
+      width: 100% !important;
+    }
+    .logos{
+      width: 45%;
+      margin: 20px 27% -10px;
+    }
+    #divButtons{
+      height: 80px;
+    }
+    #div_buttons{
+      position: absolute;
+      right: 20%;
+      top: 120px;
+      
+    }
+    
+  }
+
+  @media only screen and (min-width: 600px) {
+    .logos{
+      width: 35%;
+      margin: 20px 30% -10px;
+    }
+  }
+  @media only screen and (min-width: 800px) {
+    .logos{
+      width: 25%;
+      margin: 20px 40% -10px;
+    }
+  }
+  @media only screen and (min-width: 1200px) {
+    .logos{
+      width: 20%;
+      margin: 20px 40% -10px;
+    }
+  }
+

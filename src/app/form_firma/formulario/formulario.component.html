@@ -1,0 +1,173 @@
+<!-- <div class="container">
+    <form [formGroup]="formFirm" class="row g-3">
+
+        <div class="col-md-6">
+            <label id="radio-group-label" aria-label="required"><strong>{{"seleccion" | translate}}</strong></label><br>
+            <mat-radio-group aria-labelledby="radio-group-label" class="radio-group" formControlName="tipo" required
+                (change)="radioChange($event)">
+                <mat-radio-button class="radio-button" value="1">{{"opcion1" | translate}}</mat-radio-button>
+                <mat-radio-button class="radio-button" value="2">{{"opcion2" | translate}}</mat-radio-button>
+            </mat-radio-group>
+            <mat-error *ngIf="this.formFirm.get('tipo')?.errors?.['required']">{{"mensajeError" |
+                translate}}</mat-error>
+        </div>
+        <div class="mb-3">
+
+            <mat-form-field appearance="fill" class="name-field field">
+                <mat-label>{{"nombres" | translate}}</mat-label>
+                <input matInput formControlName="nombre" required>
+                <mat-error *ngIf="this.formFirm.get('nombre')?.errors?.['required']">{{"mensajeError" |
+                    translate}}</mat-error>
+            </mat-form-field>
+        </div>
+        <br>
+        <mat-form-field appearance="fill" class="surname-field field">
+            <mat-label>{{"apellidos" | translate}}</mat-label>
+            <input matInput required formControlName="apellidos">
+            <mat-error *ngIf="this.formFirm.get('apellidos')?.errors?.['required']">{{"mensajeError" |
+                translate}}</mat-error>
+        </mat-form-field><br>
+        <mat-form-field appearance="fill" class="email-field field">
+            <mat-label>{{"correo" | translate}}</mat-label>
+            <input matInput placeholder="pat@gmail.com" formControlName="correo" required>
+            <mat-error *ngIf="this.formFirm.get('correo')?.errors?.['required']">{{"mensajeError" |
+                translate}}</mat-error>
+            <mat-error *ngIf="this.formFirm.get('correo')?.errors?.['email']">{{"mensajeErrorEmail" |
+                translate}}</mat-error>
+        </mat-form-field><br>
+        <mat-form-field appearance="fill" class="field">
+            <mat-label>{{"pais" | translate}}</mat-label>
+            <mat-select formControlName="pais" required>
+                <mat-option *ngFor="let item of pais" [value]="item.value">{{item.label}}</mat-option>
+                <mat-error *ngIf="this.formFirm.get('pais')?.errors?.['required']">{{"mensajeError" |
+                    translate}}</mat-error>
+            </mat-select>
+        </mat-form-field><br>
+        <mat-form-field appearance="fill" class="institution-field field">
+            <mat-label>{{"institucion" | translate}}</mat-label>
+            <input matInput formControlName="institucion" required>
+            <mat-error *ngIf="this.formFirm.get('institucion')?.errors?.['required']">{{"mensajeError" |
+                translate}}</mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill" class="position-field field">
+            <mat-label>{{"cargo" | translate}}</mat-label>
+            <input matInput formControlName="cargo" required>
+            <mat-error *ngIf="this.formFirm.get('cargo')?.errors?.['required']">{{"mensajeError" |
+                translate}}</mat-error>
+        </mat-form-field><br><br>
+        <div class="button-file" *ngIf="showUploadFile">
+            <label>{{"Logo" | translate}}</label>&nbsp;
+            <input type="file" accept=".png, .jpg" (change)="saveFile($event)">
+        </div><br><br>
+
+        <ngx-recaptcha2 #captchaElem [siteKey]="siteKey" (reset)="handleReset()" (expire)="handleExpire()"
+            (load)="handleLoad()" (success)="handleSuccess($event)" [useGlobalDomain]="false"
+            formControlName="recaptcha">
+
+        </ngx-recaptcha2>
+        <mat-error *ngIf="this.formFirm.get('recaptcha')?.errors?.['required']">{{"mensajeError" |
+            translate}}</mat-error>
+        <div class="button-row">
+            <button [attr.disabled]="formFirm.valid ? null : true" type="submit" class="button-firm"
+                (click)="saveDate()">{{"Firmar" | translate}}</button>
+        </div>
+    </form>
+</div> -->
+
+<div>
+    <form [formGroup]="formFirm" class="row g-3">
+    <div style="width: 94%; margin: 20px auto">
+        <div class="row mb-3">
+            <label id="radio-group-label" aria-label="required"><strong>{{"seleccion" | translate}}</strong></label><br>
+            <mat-radio-group aria-labelledby="radio-group-label" class="radio-group" formControlName="tipo" required
+                (change)="radioChange($event)">
+                <mat-radio-button class="radio-button" value="1">
+                    <span class="wrap-mat-radio-label" style="white-space: normal">{{"opcion1" | translate}}</span>                    
+                </mat-radio-button>
+                <mat-radio-button class="radio-button" value="2">
+                    <span class="wrap-mat-radio-label" style="white-space: normal">{{"opcion2" | translate}}</span>
+                </mat-radio-button>
+            </mat-radio-group>
+            <mat-error *ngIf="this.formFirm.get('tipo')?.errors?.['required']">{{"mensajeError" |
+                translate}}</mat-error>
+        </div>
+        <div class="row mb-3">
+            <mat-form-field appearance="fill" class="name-field field input-fullw">
+                <mat-label>{{"nombres" | translate}}</mat-label>
+                <input matInput formControlName="nombre" required>
+                <mat-error *ngIf="this.formFirm.get('nombre')?.errors?.['required']">{{"mensajeError" |
+                    translate}}</mat-error>
+            </mat-form-field>
+        </div>
+        <div class="row mb-3">
+            <mat-form-field appearance="fill" class="surname-field field input-fullw">
+                <mat-label>{{"apellidos" | translate}}</mat-label>
+                <input matInput required formControlName="apellidos">
+                <mat-error *ngIf="this.formFirm.get('apellidos')?.errors?.['required']">{{"mensajeError" |
+                    translate}}</mat-error>
+            </mat-form-field>
+        </div>
+        <div class="row mb-3">
+            <mat-form-field appearance="fill" class="email-field field input-fullw">
+                <mat-label>{{"correo" | translate}}</mat-label>
+                <input matInput placeholder="pat@gmail.com" formControlName="correo" required>
+                <mat-error *ngIf="this.formFirm.get('correo')?.errors?.['required']">{{"mensajeError" |
+                    translate}}</mat-error>
+                <mat-error *ngIf="this.formFirm.get('correo')?.errors?.['email']">{{"mensajeErrorEmail" |
+                    translate}}</mat-error>
+            </mat-form-field>
+        </div>
+        <div class="row mb-3">
+            <mat-form-field appearance="fill" class="field input-fullw">
+                <mat-label>{{"pais" | translate}}</mat-label>
+                <mat-select formControlName="pais" required>
+                    <mat-option *ngFor="let item of pais" [value]="item.value">{{item.label}}</mat-option>
+                    <mat-error *ngIf="this.formFirm.get('pais')?.errors?.['required']">{{"mensajeError" |
+                        translate}}</mat-error>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="row mb-3">
+            <mat-form-field appearance="fill" class="institution-field field input-fullw">
+                <mat-label>{{"institucion" | translate}}</mat-label>
+                <input matInput formControlName="institucion" required>
+                <mat-error *ngIf="this.formFirm.get('institucion')?.errors?.['required']">{{"mensajeError" |
+                    translate}}</mat-error>
+            </mat-form-field>
+        </div>
+        <div class="row mb-3">
+            <mat-form-field appearance="fill" class="position-field field input-fullw">
+                <mat-label>{{"cargo" | translate}}</mat-label>
+                <input matInput formControlName="cargo" required>
+                <mat-error *ngIf="this.formFirm.get('cargo')?.errors?.['required']">{{"mensajeError" |
+                    translate}}</mat-error>
+            </mat-form-field>
+        </div>
+        <div class="row mb-3">
+            <div class="button-file" *ngIf="showUploadFile">
+                <label>{{"Logo" | translate}}</label>&nbsp;
+                <input type="file" accept=".png, .jpg" (change)="saveFile($event)">
+            </div>
+        </div>
+        <div class="row mb-3">
+            <ngx-recaptcha2 #captchaElem [siteKey]="siteKey" (reset)="handleReset()" (expire)="handleExpire()"
+            (load)="handleLoad()" (success)="handleSuccess($event)" [useGlobalDomain]="false"
+            formControlName="recaptcha">
+
+        </ngx-recaptcha2>
+        <mat-error *ngIf="this.formFirm.get('recaptcha')?.errors?.['required']">{{"mensajeError" |
+            translate}}</mat-error>
+        </div>
+        <div class="row mb-3">
+            <div class="button-row">
+                <button [attr.disabled]="formFirm.valid ? null : true" type="submit" class="button-firm"
+                    (click)="saveDate()">{{"Firmar" | translate}}</button>
+            </div>
+        </div>
+        
+    </div>
+</form>
+</div>
+
+<!-- <pre>{{ formFirm.value | json  }}</pre> -->
