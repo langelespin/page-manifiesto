@@ -320,6 +320,14 @@ export class MapComponent implements OnInit {
         text: "Globe"
       })
     );
+    // Rotate animation
+chart.animate({
+  key: "rotationX",
+  from: 0,
+  to: 360,
+  duration: 30000,
+  loops: Infinity
+});
     
     // Create series for background fill
     // https://www.amcharts.com/docs/v5/charts/map-chart/map-polygon-series/#Background_polygon

@@ -45,5 +45,7 @@
     "firmantes": "Firmantes en",
     "resultados": "Resultados de",
     "conoceFirmantes": "Conoce a los firmantes",
-    "descargarPdf": "Descargar PDF"
+    "descargarPdf": "Descargar PDF",
+    "firmante":"FIRMANTES",
+    "manifiesto":"MANIFIESTO"
 }

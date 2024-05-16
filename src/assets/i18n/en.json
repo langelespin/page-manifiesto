@@ -44,5 +44,7 @@
     "frase5": "Institutions or other organizations",
     "firmantes": "Signers in",
     "conoceFirmantes": "Meet the signers",
-    "descargarPdf": "Download PDF"
+    "descargarPdf": "Download PDF",
+    "firmante":"SIGNERS",
+    "manifiesto":"MANIFESTO"
 }

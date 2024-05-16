@@ -4,12 +4,12 @@
                 <span style="background-color: black; width: 100%; opacity: 0.4;"></span>
                 <div id="divButtons">
                     <div id="div_buttons">
-                        <a class="div-buttons" *ngIf="idioma === 'es'" href="https://globaldiamantoa.org/manifiesto/">MANIFIESTO</a>
-                        <a class="div-buttons"  *ngIf="idioma === 'es'" routerLink="/mapa">FIRMANTES</a>
-                        <a class="div-buttons" *ngIf="idioma === 'en'" href="https://globaldiamantoa.org/manifiesto/">MANIFESTO</a>
-                        <a class="div-buttons" *ngIf="idioma === 'en'" routerLink="/mapa">SIGNERS</a>
-                        <a class="div-buttons" *ngIf="idioma === 'pt'" href="https://globaldiamantoa.org/manifiesto/">MANIFIESTO</a>
-                        <a class="div-buttons" *ngIf="idioma === 'pt'" routerLink="/mapa">FIRMANTES</a>
+                        <a class="div-buttons" *ngIf="idioma === 'es'" href="https://globaldiamantoa.org/manifiesto/">{{ "manifiesto" | translate}}</a>
+                        <a class="div-buttons"  *ngIf="idioma === 'es'" routerLink="/mapa">{{ "firmante" | translate}}</a>
+                        <a class="div-buttons" *ngIf="idioma === 'en'" href="https://globaldiamantoa.org/manifiesto/">{{ "manifiesto" | translate}}</a>
+                        <a class="div-buttons" *ngIf="idioma === 'en'" routerLink="/mapa">{{ "firmante" | translate}}</a>
+                        <a class="div-buttons" *ngIf="idioma === 'pt'" href="https://globaldiamantoa.org/manifiesto/">{{ "manifiesto" | translate}}</a>
+                        <a class="div-buttons" *ngIf="idioma === 'pt'" routerLink="/mapa">{{ "firmante" | translate}}</a>
                     </div>
                 
                     <div id="divButtonsTranslate">
